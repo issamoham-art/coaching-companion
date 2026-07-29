@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Coaching &amp; Counseling — Online Companion | Genio Talent Development</title>
+<style>
+:root{
+  --navy:#002060; --blue:#0070C0; --gold:#FBAE40; --orange:#F26B43;
+  --gray:#888; --line:#dde5ee; --bg:#f5f8fc; --panel:#fff; --ink:#1c2430;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;-webkit-text-size-adjust:100%}
+body{font-family:Calibri,"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.6}
+h1,h2,h3,h4,.brandfont{font-family:"Century Gothic",CenturyGothic,"URW Gothic",AppleGothic,"Trebuchet MS",sans-serif}
+#app{display:flex;min-height:100vh;max-width:1400px;margin:0 auto;background:var(--panel)}
+/* ---------- sidebar ---------- */
+#side{width:290px;flex:0 0 290px;background:var(--navy);color:#fff;padding:0 0 40px;position:sticky;top:0;height:100vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+#side .brand{padding:22px 20px 16px;border-bottom:1px solid rgba(255,255,255,.15)}
+#side .brand .g{font-size:22px;font-weight:700;letter-spacing:.5px;color:#fff}
+#side .brand .g span{color:var(--gold)}
+#side .brand .t{font-size:11.5px;color:#b9c9de;letter-spacing:1.2px;text-transform:uppercase;margin-top:4px}
+#side .prog{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.15)}
+#side .prog .lbl{font-size:11px;color:#b9c9de;text-transform:uppercase;letter-spacing:1px}
+.bar{height:7px;border-radius:4px;background:rgba(255,255,255,.18);margin-top:7px;overflow:hidden}
+.bar>i{display:block;height:100%;background:var(--gold);width:0%;transition:width .3s}
+#side .pct{font-size:12px;color:#fff;margin-top:5px}
+nav a{display:block;padding:11px 20px;color:#cfe0f2;text-decoration:none;font-size:14.2px;border-left:3px solid transparent}
+nav a:hover{background:rgba(255,255,255,.07);color:#fff}
+nav a.sec{margin-top:12px;font-weight:700;color:#fff;font-size:14.8px;font-family:"Century Gothic",sans-serif}
+nav a.sub{padding-left:34px;font-size:13.3px}
+nav a.active{background:rgba(251,174,64,.16);border-left-color:var(--gold);color:#fff}
+nav a .tag{font-size:10px;padding:1px 5px;border-radius:3px;margin-right:6px;font-weight:700;letter-spacing:.5px}
+.tag.ex{background:var(--blue);color:#fff}.tag.cs{background:var(--orange);color:#fff}.tag.ac{background:var(--gold);color:#3a2a00}
+#scrim{display:none;position:fixed;inset:0;background:rgba(0,16,48,.5);z-index:40}
+#scrim.on{display:block}
+/* ---------- main ---------- */
+#main{flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:30;background:#fff;border-bottom:2px solid var(--blue);padding:10px 30px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.topbar .ttl{font-family:"Century Gothic",sans-serif;font-weight:700;color:var(--navy);font-size:16px;margin-right:auto}
+button{font-family:inherit;font-size:13.5px;border:1px solid var(--blue);background:#fff;color:var(--blue);padding:9px 14px;border-radius:6px;cursor:pointer;min-height:40px}
+button:hover{background:var(--blue);color:#fff}
+button.solid{background:var(--blue);color:#fff}button.solid:hover{background:var(--navy);border-color:var(--navy)}
+button.warn{border-color:#c0392b;color:#c0392b}button.warn:hover{background:#c0392b;color:#fff}
+#content{padding:24px 30px 90px;max-width:900px}
+section{display:none}section.on{display:block}
+h1{font-size:28px;color:var(--navy);margin:6px 0 4px;line-height:1.2}
+h2{font-size:20px;color:var(--blue);margin:30px 0 8px;border-bottom:1px solid var(--line);padding-bottom:5px}
+h3{font-size:16.5px;color:var(--navy);margin:20px 0 6px}
+h4{font-size:14.5px;color:var(--blue);margin:16px 0 4px;text-transform:uppercase;letter-spacing:.6px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+.lead{color:#4a5768;font-size:16.5px}
+.kicker{display:inline-block;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:var(--gray);font-weight:700;margin-bottom:2px}
+blockquote{margin:14px 0;padding:12px 16px;background:#eef4fb;border-left:4px solid var(--blue);color:var(--navy);font-size:15.5px}
+blockquote.gold{background:#fff6e8;border-left-color:var(--gold)}
+/* ---------- tables ---------- */
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
+table{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+th{background:var(--blue);color:#fff;text-align:left;padding:8px 10px;font-weight:700}
+td{border:1px solid var(--line);padding:8px 10px;vertical-align:top}
+tr.body-even td{background:#f7fafd}
+.dialog{margin:12px 0;padding:12px 16px;background:#fbfcfe;border:1px solid var(--line);border-radius:7px}
+.dialog p{margin:0 0 9px}.dialog p:last-child{margin:0}
+.dialog b{color:var(--navy)}
+.dialog .stage{color:var(--gray);font-style:italic;font-size:13.5px}
+/* ---------- exercise cards ---------- */
+.ex{border:1px solid var(--line);border-radius:9px;margin:26px 0;overflow:hidden;background:#fff;box-shadow:0 1px 3px rgba(0,32,96,.07)}
+.ex>header{padding:13px 18px;color:#fff;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ex.t-ex>header{background:var(--blue)}.ex.t-cs>header{background:var(--orange)}.ex.t-ac>header{background:#d99026}
+.ex>header .code{font-weight:700;font-family:"Century Gothic",sans-serif;letter-spacing:.5px}
+.ex>header .name{font-family:"Century Gothic",sans-serif;font-weight:700;font-size:16px;margin-right:auto}
+.ex>header .meta{font-size:12px;opacity:.92}
+.ex .body{padding:16px 18px}
+.meta-row{display:flex;gap:18px;flex-wrap:wrap;font-size:13.5px;color:#5a6675;border-bottom:1px dashed var(--line);padding-bottom:10px;margin-bottom:12px}
+.meta-row b{color:var(--navy)}
+label.q{display:block;font-weight:600;color:var(--navy);margin:14px 0 5px;font-size:14.8px}
+textarea,input[type=text]{width:100%;font-family:inherit;font-size:16px;padding:10px 12px;border:1px solid #c6d4e4;border-radius:6px;background:#fcfdff;color:var(--ink);resize:none;overflow:hidden;line-height:1.5}
+textarea:focus,input[type=text]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,112,192,.13)}
+textarea{min-height:62px;display:block}
+select{font-family:inherit;font-size:16px;padding:9px 8px;border:1px solid #c6d4e4;border-radius:6px;background:#fcfdff;width:100%;min-height:42px}
+td textarea{min-height:56px;font-size:15px}
+.debrief{background:#f4f8fd;border-left:4px solid var(--navy);padding:12px 16px;margin-top:18px;border-radius:0 6px 6px 0}
+.debrief h4{margin-top:0;color:var(--navy)}
+.note{background:#fff6e8;border-left:4px solid var(--gold);padding:10px 14px;margin:14px 0;font-size:14.5px;border-radius:0 6px 6px 0}
+.saved{font-size:12px;color:#2e7d32;opacity:0;transition:opacity .3s}.saved.show{opacity:1}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;background:#eef4fb;color:var(--blue);margin-right:5px}
+footer.f{border-top:1px solid var(--line);margin-top:40px;padding-top:14px;font-size:12.5px;color:var(--gray)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:16px 0}
+.card{border:1px solid var(--line);border-radius:8px;padding:14px 16px;background:#fbfdff}
+.card h4{margin-top:0}
+#menuBtn{display:none}
+/* ---------- modal ---------- */
+#modal{display:none;position:fixed;inset:0;z-index:60;background:rgba(0,16,48,.55);padding:20px;overflow-y:auto}
+#modal.on{display:block}
+#modal .box{background:#fff;max-width:520px;margin:6vh auto;border-radius:10px;padding:22px;box-shadow:0 8px 40px rgba(0,0,0,.3)}
+#modal h3{margin-top:0;color:var(--navy)}
+#modal ol{padding-left:20px}
+#modal .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.busy{position:fixed;inset:0;z-index:70;background:rgba(255,255,255,.9);display:none;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center;padding:24px}
+.busy.on{display:flex}
+.busy .sp{width:38px;height:38px;border:4px solid #dbe6f2;border-top-color:var(--blue);border-radius:50%;animation:spin .9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* ---------- tablet ---------- */
+@media(max-width:1000px){
+  #app{display:block}
+  #side{position:fixed;left:0;top:0;bottom:0;transform:translateX(-100%);transition:transform .25s;z-index:50;height:100%;width:284px}
+  #side.open{transform:none}
+  #menuBtn{display:inline-block;padding:9px 12px}
+  #content{padding:20px 18px 90px}
+  .topbar{padding:9px 14px}
+  .topbar .ttl{font-size:14.5px;width:100%;order:-1;margin:0 0 2px}
+}
+/* ---------- phone: stack worksheet tables into cards ---------- */
+@media(max-width:700px){
+  body{font-size:15.5px}
+  h1{font-size:24px}h2{font-size:18.5px}
+  #content{padding:16px 13px 90px}
+  .ex .body{padding:13px 13px}
+  .ex>header{padding:11px 13px}
+  .ex>header .name{font-size:15px;width:100%;order:3;margin:0}
+  .cards{grid-template-columns:1fr}
+  .tw{overflow-x:visible;margin:12px 0}
+  table.stack{border:0;background:transparent}
+  table.stack tr.hdr{display:none}
+  table.stack tr{display:block;border:1px solid #c9d8e8;border-radius:9px;margin-bottom:14px;background:#fff;overflow:hidden}
+  table.stack tr.body-even td{background:#fff}
+  table.stack tr>td:first-child{background:#eef4fb}
+  table.stack td{display:block;width:auto;border:0;border-bottom:1px solid var(--line);padding:11px 13px}
+  table.stack td:last-child{border-bottom:0}
+  table.stack td[data-label]::before{
+    content:attr(data-label);display:block;font-size:10.5px;text-transform:uppercase;
+    letter-spacing:.9px;color:var(--blue);font-weight:700;margin-bottom:6px;line-height:1.3}
+  table.stack tr>td:first-child[data-label]::before{color:var(--navy)}
+  table.wide{min-width:0}
+  table:not(.stack){font-size:13.5px}
+  .tw.scrollx{overflow-x:auto;border:1px solid var(--line);border-radius:8px}
+  .tw.scrollx table{min-width:560px;margin:0}
+  .tw.scrollx::after{content:"";display:block}
+  .scrollhint{font-size:11.5px;color:var(--gray);margin:-8px 0 12px;font-style:italic}
+}
+/* ---------- print ---------- */
+@page{margin:14mm 12mm}
+@media print{
+  #side,.topbar,#menuBtn,#scrim,#modal,.busy,.scrollhint{display:none!important}
+  #app{display:block;max-width:none}
+  section{display:block!important;page-break-before:always}
+  section:first-of-type{page-break-before:auto}
+  body{background:#fff;font-size:10.5pt;line-height:1.45}
+  #content{max-width:none;padding:0}
+  .tw{overflow:visible!important}
+  table{page-break-inside:auto}
+  tr{page-break-inside:avoid}
+  .ex{break-inside:auto;box-shadow:none}
+  .ex>header{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  th{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  textarea,input[type=text],select{
+    border:0!important;border-bottom:1px solid #99a!important;border-radius:0!important;
+    background:#fff!important;padding:2px 0!important;font-size:10.5pt!important;
+    height:auto!important;overflow:visible!important;resize:none;
+    -webkit-appearance:none;appearance:none}
+  .ansPrint{display:block!important}
+  .fieldLive{display:none!important}
+  h1,h2,h3{page-break-after:avoid}
+}
+
+</style>
+</head>
+<body>
+<div id="scrim"></div>
+<div id="app">
+<aside id="side">
+  <div class="brand">
+    <div class="g">GEN<span>I</span>O</div>
+    <div class="t">Talent Development</div>
+  </div>
+  <div class="prog">
+    <div class="lbl">Workbook progress</div>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="pct"><span id="pctTxt">0</span>% &middot; <span id="cntTxt">0 of 0 fields</span></div>
+  </div>
+  <nav id="nav"></nav>
+</aside>
+<div id="main">
+  <div class="topbar">
+    <button id="menuBtn" onclick="toggleDrawer()" aria-label="Menu">&#9776;</button>
+    <div class="ttl">Coaching &amp; Counseling &mdash; Online Companion</div>
+    <span class="saved" id="savedFlag">Saved</span>
+    <button class="solid" onclick="openPdf()">Save PDF</button>
+    <button onclick="exportTxt()">Export text</button>
+    <button class="warn" onclick="clearAll()">Clear</button>
+  </div>
+    <span class="saved" id="savedFlag">Saved</span>
+    <button onclick="exportTxt()">Export answers</button>
+    <button onclick="window.print()">Print / PDF</button>
+    <button class="warn" onclick="clearAll()">Clear</button>
+  </div>
+  <div id="content">
+<!-- ============ HOME ============ -->
+<section id="s-home" class="on" data-nav="sec" data-title="Start Here">
+  <span class="kicker">Genio Talent Development</span>
+  <h1>Coaching &amp; Counseling for Pharmaceutical Sales Managers</h1>
+  <p class="lead">Online companion to the participant manual. Every exercise, case scenario and activity from the printed workbook is here — type your answers, and they stay saved in this browser.</p>
+
+  <div class="cards">
+    <div class="card"><h4>How it saves</h4><p>Answers are stored locally in your own browser. Nothing is sent anywhere. Clearing your browser data or using a different device will lose them — export before you finish.</p></div>
+    <div class="card"><h4>Export</h4><p><b>Export answers</b> downloads everything you have written as a text file. <b>Print / PDF</b> renders the whole workbook, answers included.</p></div>
+    <div class="card"><h4>Three kinds of practice</h4><p><span class="pill">EX</span> written exercise &nbsp; <span class="pill">CS</span> case scenario &nbsp; <span class="pill">AC</span> live activity</p></div>
+  </div>
+
+  <h2>Ground rules for the practice work</h2>
+  <ol>
+    <li>Use real people from your own team wherever the instruction allows. Generic answers produce generic skill.</li>
+    <li>Write before you speak. Writing a coaching question forces a precision that talking does not.</li>
+    <li>In role-plays, play the representative honestly — including the resistance. A compliant role-play teaches nothing.</li>
+    <li>Every exercise has a debrief. The debrief is where the learning lands, not the exercise itself.</li>
+  </ol>
+
+  <h2>Course objective</h2>
+  <blockquote>To improve representative performance by using coaching and counseling as an <b>everyday process</b>.</blockquote>
+  <p>Not a technique for the annual review. What happens in the car between calls, in the five minutes after a difficult visit, and in the Monday phone call about a stalled account.</p>
+
+  <h2>The field manager's structural problem</h2>
+  <p>A first-line manager in pharmaceutical sales sees a fraction of actual performance. Representatives spend 80&ndash;90% of their working time alone. You get a handful of joint calls per cycle, numbers that arrive weeks after the behaviour that produced them, and a CRM record reflecting what the rep chose to enter.</p>
+  <p>You cannot supervise your way to performance in that structure. You can only develop your way there.</p>
+  <label class="q">Before you begin — what do you most want to be able to do differently by the end of this program?</label>
+  <textarea data-k="home.goal" placeholder="Be specific. 'Be a better coach' is not an answer."></textarea>
+</section>
+
+<!-- ============ MODULE 1 ============ -->
+<section id="s-m1" data-nav="sec" data-title="Module 1 — Foundations">
+  <span class="kicker">Module 1</span>
+  <h1>Foundations of Performance Dialogue</h1>
+  <p class="lead">Objectives: define coaching and distinguish it from direction; explain the cost of a directive default; diagnose whether a situation calls for coaching or counseling.</p>
+
+  <h2>What is coaching?</h2>
+  <blockquote>Coaching is a method of improving performance by helping an individual discover and unlock their own potential, using questions rather than instructions.</blockquote>
+  <p>Training improves skill by <i>telling</i>. Coaching operates on the premise that the representative frequently already holds the answer, or enough of it, and that your job is to draw it out rather than supply it.</p>
+  <p>Consider the difference between a tour guide and a mountain guide. The tour guide tells you where to look and what to think; you see a great deal and remember little. The mountain guide asks about your fitness, your objective and your fears, then helps you choose the route; you arrive tired, capable, and able to climb the next one without them.</p>
+
+  <h2>Coaching is asking. Feedback is telling.</h2>
+  <table>
+    <tr><th>Coaching — asking</th><th>Feedback — telling</th></tr>
+    <tr><td>"What's your read on the situation?"<br/>"What options have you considered?"<br/>"What would success look like with this account?"<br/>"What's standing in your way?"</td>
+        <td>"In the call with Dr. Rania you opened with a question about her patient population before mentioning the product. She talked for four minutes before you presented anything."<br/><br/>"When she raised price, you moved straight to the access programme without asking what was behind the objection."</td></tr>
+  </table>
+  <p>Coaching builds the representative's capacity for self-correction. Feedback supplies the raw data that self-correction needs. You need both, and you need to know which one you are doing at any given moment.</p>
+
+  <h2>The cost of directing</h2>
+  <table>
+    <tr><th>What directing costs</th><th>What coaching returns</th></tr>
+    <tr><td><b>Dependency</b> — you supply answers, reps stop generating them. Your phone rings more, not less.</td><td>Ideas surface from the person closest to the customer.</td></tr>
+    <tr><td><b>Reduced motivation</b> — autonomy is removed.</td><td>Ownership of the solution, and therefore commitment to it.</td></tr>
+    <tr><td><b>Lost development</b> — a difficult account becomes a transaction instead of a lesson.</td><td>Development happens inside normal work.</td></tr>
+    <tr><td><b>Weaker commitment</b> — people comply with plans handed to them.</td><td>Confidence and independence grow with each solved problem.</td></tr>
+    <tr><td><b>Wasted talent</b> — you were not in the room. The rep was.</td><td>Trust, retention, discretionary effort.</td></tr>
+  </table>
+  <div class="note">The honest trade-off: coaching takes longer per conversation and less time in aggregate. If your calendar is consumed by problems your reps bring you, you are paying the directing tax.</div>
+
+  <h2>When to coach and when to counsel</h2>
+  <p>The diagnostic is not the size of the problem. It is the representative's <b>awareness</b> and <b>cooperation</b>.</p>
+  <table>
+    <tr><th>Use COACHING when</th><th>Use COUNSELING when</th></tr>
+    <tr>
+      <td><b>Aware</b> — they recognise the gap.<br/><b>Cooperative</b> — willing to discuss and explore.<br/><br/><i>Example:</i> a rep builds excellent physician relationships but rarely closes for commitment. She knows it. She wants to fix it.</td>
+      <td><b>Unaware</b> — they do not see the behaviour as a problem.<br/><b>Unconcerned</b> — they see it and do not care.<br/><br/><i>Example:</i> a rep is repeatedly late to appointments. "The doctors keep me waiting anyway." Coaching questions here produce evasion, not insight.</td>
+    </tr>
+  </table>
+
+  <!-- EX 1.1 -->
+  <div class="ex t-ex" id="x-ex11" data-nav="sub" data-tag="ex" data-title="EX 1.1 Diagnostic Sort">
+    <header><span class="code">EX 1.1</span><span class="name">The Diagnostic Sort: Coach, Counsel, or Neither?</span><span class="meta">15 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> build the reflex of diagnosing before choosing an approach</span><span><b>Format:</b> individual 7 min, pairs 8 min</span></div>
+      <p>Mark <b>C</b> (coach), <b>CN</b> (counsel), or <b>N</b> (neither — a training, resourcing or systems problem). Justify against the awareness/cooperation test.</p>
+      <table>
+        <tr><th style="width:52%">Situation</th><th style="width:14%">Call</th><th style="width:34%">Why?</th></tr>
+        <tr><td>1. A rep with 6 months' tenure cannot answer a specialist's question about the Phase III endpoint data. She is embarrassed and asks you for help.</td>
+            <td><select data-k="ex11.1a"><option value=""></option><option>C</option><option>CN</option><option>N</option></select></td>
+            <td><textarea data-k="ex11.1b"></textarea></td></tr>
+        <tr><td>2. A senior rep's call rate has dropped 30%. He says, "The numbers are fine, I'm hitting target, the call metric is meaningless."</td>
+            <td><select data-k="ex11.2a"><option value=""></option><option>C</option><option>CN</option><option>N</option></select></td>
+            <td><textarea data-k="ex11.2b"></textarea></td></tr>
+        <tr><td>3. A rep records calls in CRM three days late. "I know, I'm sorry, I keep meaning to do it in the car and then I don't."</td>
+            <td><select data-k="ex11.3a"><option value=""></option><option>C</option><option>CN</option><option>N</option></select></td>
+            <td><textarea data-k="ex11.3b"></textarea></td></tr>
+        <tr><td>4. A rep has not visited two of her five A-list accounts this cycle. She says the receptionists block her and she has run out of ideas.</td>
+            <td><select data-k="ex11.4a"><option value=""></option><option>C</option><option>CN</option><option>N</option></select></td>
+            <td><textarea data-k="ex11.4b"></textarea></td></tr>
+        <tr><td>5. A rep left a sample box in an unsecured area at a clinic. On the compliance risk: "Nothing happened, everyone does it."</td>
+            <td><select data-k="ex11.5a"><option value=""></option><option>C</option><option>CN</option><option>N</option></select></td>
+            <td><textarea data-k="ex11.5b"></textarea></td></tr>
+        <tr><td>6. A high performer has become quiet in cycle meetings and stopped volunteering for pilots. Results are still strong.</td>
+            <td><select data-k="ex11.6a"><option value=""></option><option>C</option><option>CN</option><option>N</option></select></td>
+            <td><textarea data-k="ex11.6b"></textarea></td></tr>
+      </table>
+      <div class="debrief">
+        <h4>Debrief</h4>
+        <label class="q">1. Which items generated disagreement in your pair? What drove the difference?</label>
+        <textarea data-k="ex11.d1"></textarea>
+        <label class="q">2. Item 6 has no stated performance gap. Does that make it a coaching situation or not?</label>
+        <textarea data-k="ex11.d2"></textarea>
+        <label class="q">3. Which of the six most resembles someone on your team right now?</label>
+        <textarea data-k="ex11.d3"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- EX 1.2 -->
+  <div class="ex t-ex" id="x-ex12" data-nav="sub" data-tag="ex" data-title="EX 1.2 Instructions to Questions">
+    <header><span class="code">EX 1.2</span><span class="name">Turning Instructions into Questions</span><span class="meta">10 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> convert habitual directive statements into coaching questions</span><span><b>Format:</b> individual</span></div>
+      <p>A good question is open, short and non-leading. "Don't you think you should call earlier?" is an instruction wearing a question mark.</p>
+      <table>
+        <tr><th style="width:44%">Directive statement</th><th>Your coaching question</th></tr>
+        <tr><td>"You need to spend more time with your A-list customers."</td><td><textarea data-k="ex12.1"></textarea></td></tr>
+        <tr><td>"Stop leading with price. Lead with the outcome data."</td><td><textarea data-k="ex12.2"></textarea></td></tr>
+        <tr><td>"Your pre-call planning isn't good enough — write objectives before every call."</td><td><textarea data-k="ex12.3"></textarea></td></tr>
+        <tr><td>"You should get Dr. Khaled's associate on side before you go back to him."</td><td><textarea data-k="ex12.4"></textarea></td></tr>
+        <tr><td>"Don't take the objection personally, just handle it."</td><td><textarea data-k="ex12.5"></textarea></td></tr>
+        <tr><td><b>Your own most-repeated instruction:</b><br/><textarea data-k="ex12.6a" style="min-height:48px"></textarea></td><td><textarea data-k="ex12.6"></textarea></td></tr>
+      </table>
+      <div class="note"><b>Self-check.</b> Reread your six questions. Circle any that contain the answer inside the question. Rewrite those.</div>
+    </div>
+  </div>
+
+  <!-- CS 1.1 -->
+  <div class="ex t-cs" id="x-cs11" data-nav="sub" data-tag="cs" data-title="CS 1.1 Ahmed and Hany">
+    <header><span class="code">CS 1.1</span><span class="name">Ahmed and Hany: The Same Problem, Two Conversations</span><span class="meta">20 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> see the mechanical difference between telling and coaching</span><span><b>Format:</b> read individually, discuss in table groups</span></div>
+      <p><b>Background.</b> Ahmed is a district sales manager who has always prided himself on being decisive. Hany is a capable rep whose numbers on a newly launched product are behind target.</p>
+
+      <h3>Version A — The Telling Approach</h3>
+      <div class="dialog">
+        <p><b>Ahmed:</b> "Hany, your numbers on the new launch are down. Here's what you need to do. I've written a new call script — lead with the cost-per-patient data, then go to the safety profile. Use it with every physician this cycle. Also increase your call rate to ten a day. Report back Friday."</p>
+        <p><b>Hany:</b> "Okay."</p>
+      </div>
+      <p><b>Result.</b> Hany follows the instructions. Numbers improve marginally for two weeks and then flatten. He feels micromanaged, has learned nothing transferable, and the next time an account stalls he waits for Ahmed.</p>
+
+      <h3>Version B — The Coaching Approach</h3>
+      <div class="dialog">
+        <p><b>Ahmed:</b> "Hany, the new product numbers are behind our goal. Let's talk about it. What's your read from the field?"</p>
+        <p><b>Hany:</b> "Doctors seem resistant. They say they're happy with what they're already prescribing."</p>
+        <p><b>Ahmed:</b> "That's useful. When you say 'resistant' — what specifically are they saying or doing? Walk me through the last conversation."</p>
+        <p class="stage">(Hany describes a call with Dr. Rania — she listened, said the current therapy was working, and moved on.)</p>
+        <p><b>Ahmed:</b> "Thank you. Based on what you just described, what do you think her actual objection was?"</p>
+        <p><b>Hany:</b> "Hmm. I've been leading with cost savings. But she never mentioned cost. She talked about her patients being stable. Maybe she's worried about switching risk, not price."</p>
+        <p><b>Ahmed:</b> "That sounds like a hypothesis worth testing. How would you test it?"</p>
+        <p><b>Hany:</b> "I could open the next call by asking which of her patients she'd consider <i>not</i> stable — the ones with tolerability issues. Then the side-effect data becomes relevant instead of the price."</p>
+        <p><b>Ahmed:</b> "What would you need to make that work?"</p>
+        <p><b>Hany:</b> "The tolerability sub-analysis. And I should practise the opening question — it needs to not sound like a trap."</p>
+      </div>
+      <p><b>Result.</b> Hany diagnosed the problem, generated the approach, identified his own resource gap and owns the plan. He will apply the same logic to the next stalled account without Ahmed present.</p>
+
+      <div class="debrief">
+        <h4>Analysis questions</h4>
+        <label class="q">1. Count the questions Ahmed asks in Version B, and the statements. What is the ratio — and what happens if you invert it?</label>
+        <textarea data-k="cs11.1"></textarea>
+        <label class="q">2. Ahmed never says "good job." Where does the reinforcement come from instead?</label>
+        <textarea data-k="cs11.2"></textarea>
+        <label class="q">3. At what precise moment does Hany's understanding shift? What did Ahmed do immediately before that moment?</label>
+        <textarea data-k="cs11.3"></textarea>
+        <label class="q">4. Version B takes eight minutes instead of two. Model the cost of the extra six minutes across eight reps — then the cost of Version A's outcome across two cycles.</label>
+        <textarea data-k="cs11.4"></textarea>
+        <label class="q">5. <b>Apply it.</b> Think of a directive conversation you had in the last month. Rewrite your opening line in the Version B style.</label>
+        <textarea data-k="cs11.5"></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ MODULE 2 ============ -->
+<section id="s-m2" data-nav="sec" data-title="Module 2 — The Coaching Process">
+  <span class="kicker">Module 2</span>
+  <h1>The Core Coaching Process</h1>
+  <p class="lead">Objectives: apply a four-part framework to a field performance conversation; separate observable behaviour from judgement; write a behavioural standard.</p>
+
+  <h2>The four coaching questions</h2>
+  <ol>
+    <li><b>What are the results?</b> — observation and data</li>
+    <li><b>What caused the results?</b> — analysis and impact</li>
+    <li><b>What are the standards?</b> — clarifying expectations</li>
+    <li><b>What do we do about it?</b> — action planning</li>
+  </ol>
+  <p>Skipping step one produces argument. Skipping step three produces a conversation about opinion. Skipping step four produces a pleasant chat.</p>
+  <blockquote>"I am willing to analyse my actions." &rarr; "I participate fully." &rarr; "I make judgements about my own results." &rarr; "I can see the need to change and I am part of the solution."</blockquote>
+  <p>This matters more in pharmaceutical field sales than almost anywhere else, precisely because the representative works unobserved for the overwhelming majority of their time. Self-diagnosis is not a nice-to-have — it is the only mechanism that operates when you are not there.</p>
+
+  <h2>Behaviour versus judgement</h2>
+  <p>A <b>behaviour</b> has two properties: you can see or hear it, and two independent observers would agree on what happened. A judgement has neither — it is a conclusion drawn from behaviour and then presented as if it were the behaviour.</p>
+  <table>
+    <tr><th>Judgement (ineffective)</th><th>Behaviour (effective)</th></tr>
+    <tr><td>"You were unprofessional in the clinic visit."</td><td>"You arrived ten minutes after the agreed time and the physician had moved on to her next patient."</td></tr>
+    <tr><td>"You have a bad attitude."</td><td>"In the last three cycle meetings, when a new campaign was introduced, you said 'this won't work here' before any details were presented."</td></tr>
+    <tr><td>"Your presentation was weak."</td><td>"The presentation did not include the Q2 territory data, and when the regional manager asked for it you said you would send it later."</td></tr>
+    <tr><td>"You're not a team player."</td><td>"Yesterday when Sara asked for help covering the hospital account, you said you were too busy and left at 4pm."</td></tr>
+    <tr><td>"You need to be more customer-focused."</td><td>"In the call with Dr. Rania you spoke for six of the eight minutes and asked one question."</td></tr>
+  </table>
+  <div class="note">Open with a judgement and the representative's attention shifts entirely to defending their identity. Nothing after that is processed. Open with behaviour and the conversation stays about an action — which a person can change without conceding they are a bad person.</div>
+
+  <!-- EX 2.1 -->
+  <div class="ex t-ex" id="x-ex21" data-nav="sub" data-tag="ex" data-title="EX 2.1 Judgement to Behaviour">
+    <header><span class="code">EX 2.1</span><span class="name">Translating Judgements into Behaviour</span><span class="meta">18 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> drop to observable evidence before you speak</span><span><b>Format:</b> individual 10 min, pairs 8 min</span></div>
+      <p>For each judgement write two or three observable behaviours that might have led to it. Test each: <i>could two people watching the same event agree it happened?</i></p>
+      <table>
+        <tr><th style="width:34%">Judgement</th><th>Observable behaviours</th></tr>
+        <tr><td>"You are disorganised."</td><td><textarea data-k="ex21.1"></textarea></td></tr>
+        <tr><td>"You lack initiative."</td><td><textarea data-k="ex21.2"></textarea></td></tr>
+        <tr><td>"You're not building relationships with the specialists."</td><td><textarea data-k="ex21.3"></textarea></td></tr>
+        <tr><td>"You don't take feedback well."</td><td><textarea data-k="ex21.4"></textarea></td></tr>
+        <tr><td>"You're a great team leader."</td><td><textarea data-k="ex21.5"></textarea></td></tr>
+        <tr><td><b>A judgement you have made about a real team member this month:</b><br/><textarea data-k="ex21.6a" style="min-height:48px"></textarea></td><td><textarea data-k="ex21.6"></textarea></td></tr>
+      </table>
+      <div class="note">This works for positive feedback too. "You're excellent" is a judgement. "You spent two hours on Thursday walking the new rep through the objection-handling grid, and she used three of those responses on Friday" is behaviour — and it is repeatable, which is the point.</div>
+      <div class="debrief">
+        <h4>Pair test</h4>
+        <p>Read your behaviours aloud. Your partner marks any that still contain interpretation. Common leaks: "you seemed", "you clearly didn't", "you obviously".</p>
+        <label class="q">Which of yours failed the test, and why?</label>
+        <textarea data-k="ex21.d1"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <h2>Analysis and impact</h2>
+  <p>The critical difference between a traditional manager and a coach is <i>who does the analysing</i>. The traditional manager analyses, judges and directs. The coach guides the representative to analyse their own behaviour and judge its consequence.</p>
+  <div class="dialog">
+    <p><b>Manager:</b> "Let's talk about the call with Dr. Sarah. Tell me what you did when you opened."</p>
+    <p><b>Rep:</b> "I asked an open question about her experience with patients who have condition X."</p>
+    <p><b>Manager:</b> "And what happened after you asked that?" <span class="stage">(impact)</span></p>
+    <p><b>Rep:</b> "She opened up. She told a story about a difficult case and her frustration with the current options."</p>
+    <p><b>Manager:</b> "What was the effect of that on the rest of the call?" <span class="stage">(rep judges the impact)</span></p>
+    <p><b>Rep:</b> "It gave me exactly the opening I needed. I could position the tolerability data against a problem she'd just described herself, instead of me asserting it."</p>
+    <p><b>Manager:</b> "That's right. What does that tell you about how you want to open with the other specialists on your list?"</p>
+  </div>
+  <p>Note what the manager did <i>not</i> say: "Good job asking an open-ended question." The rep reached the conclusion, which means the rep owns it, which means the rep will do it again on Tuesday without supervision.</p>
+
+  <h2>Setting standards</h2>
+  <blockquote class="gold">One of the primary reasons for poor performance is that representatives do not know what is expected of them.</blockquote>
+  <p>A behavioural standard has three components: <b>action or words</b>, <b>conditions</b>, <b>measure</b>.</p>
+  <table>
+    <tr><th>Vague expectation</th><th>Clear behavioural standard</th></tr>
+    <tr><td>"Be prepared for your calls."</td><td>"For every scheduled call with a top-tier physician, you will bring a written call objective, one supporting clinical reference, and one planned closing question."</td></tr>
+    <tr><td>"Follow up on leads quickly."</td><td>"All inbound requests from the medical information portal receive a first response within one working day, logged in CRM."</td></tr>
+    <tr><td>"Manage your territory effectively."</td><td>"You will visit each A-list account at least twice per cycle, with a documented call outcome for each visit."</td></tr>
+    <tr><td>"Improve your product knowledge."</td><td>"By the end of this cycle you will present the primary endpoint, the two main secondary endpoints, and the discontinuation rate from the pivotal trial without notes."</td></tr>
+  </table>
+
+  <!-- EX 2.2 -->
+  <div class="ex t-ex" id="x-ex22" data-nav="sub" data-tag="ex" data-title="EX 2.2 Standards Writing Lab">
+    <header><span class="code">EX 2.2</span><span class="name">Standards Writing Lab</span><span class="meta">22 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> produce four usable standards for your own team</span><span><b>Format:</b> individual 12 min, triad review 10 min</span></div>
+      <p>Choose four expectations you currently hold but have never written down.</p>
+      <table>
+        <tr><th style="width:28%">Vague expectation I hold</th><th>Action / words</th><th>Conditions</th><th>Measure</th></tr>
+        <tr><td><textarea data-k="ex22.1v"></textarea></td><td><textarea data-k="ex22.1a"></textarea></td><td><textarea data-k="ex22.1c"></textarea></td><td><textarea data-k="ex22.1m"></textarea></td></tr>
+        <tr><td><textarea data-k="ex22.2v"></textarea></td><td><textarea data-k="ex22.2a"></textarea></td><td><textarea data-k="ex22.2c"></textarea></td><td><textarea data-k="ex22.2m"></textarea></td></tr>
+        <tr><td><textarea data-k="ex22.3v"></textarea></td><td><textarea data-k="ex22.3a"></textarea></td><td><textarea data-k="ex22.3c"></textarea></td><td><textarea data-k="ex22.3m"></textarea></td></tr>
+        <tr><td><textarea data-k="ex22.4v"></textarea></td><td><textarea data-k="ex22.4a"></textarea></td><td><textarea data-k="ex22.4c"></textarea></td><td><textarea data-k="ex22.4m"></textarea></td></tr>
+      </table>
+      <div class="debrief">
+        <h4>Triad review — the "two observers" test</h4>
+        <p>Read each standard aloud. The other two must answer: <i>if we both watched this rep for a cycle, would we agree on whether the standard was met?</i> If either says no, it is not yet a standard.</p>
+        <label class="q">How many of your reps could state these four standards right now, unprompted? If not many — where did the failure occur, in the standard or in the communication of it?</label>
+        <textarea data-k="ex22.d1"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- CS 2.1 -->
+  <div class="ex t-cs" id="x-cs21" data-nav="sub" data-tag="cs" data-title="CS 2.1 The Double Visit">
+    <header><span class="code">CS 2.1</span><span class="name">The Double Visit: Diagnosing Without Judging</span><span class="meta">25 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> separate observation, impact and standard in a real field-visit situation</span><span><b>Format:</b> individual 12 min, table discussion 12 min</span></div>
+      <p><b>Background.</b> You are the district manager. You have just completed a double visit with <b>Nour</b> — 18 months' tenure, strong product knowledge, results steady at 94% of target and never above.</p>
+      <h3>What you observed across four calls</h3>
+      <table>
+        <tr><th style="width:22%">Call</th><th>What happened</th></tr>
+        <tr><td><b>1. Dr. Hesham</b><br/>GP, B-list</td><td>Nour opened with "How have you been?", then went directly into the detail aid at page one. She presented for five minutes. Dr. Hesham checked his phone twice. She closed with "So please keep us in mind." No commitment requested.</td></tr>
+        <tr><td><b>2. Dr. Rania</b><br/>specialist, A-list</td><td>Nour opened with a question about Dr. Rania's patient population on the competitor therapy. Dr. Rania spoke for three minutes about tolerability problems. Nour responded with the tolerability data and asked her to identify two patients to switch. Dr. Rania agreed to consider three.</td></tr>
+        <tr><td><b>3. Dr. Karim</b><br/>specialist, A-list</td><td>Nour opened with the detail aid at page one again. Dr. Karim interrupted at 90 seconds with a price objection. Nour immediately described the patient access programme. Dr. Karim said "send me the details" and stood up.</td></tr>
+        <tr><td><b>4. Hospital pharmacist</b></td><td>Nour delivered the formulary submission update accurately and in full. She asked no questions. The meeting ran four minutes.</td></tr>
+      </table>
+      <p><b>Between calls, Nour said to you:</b> "Karim is always like that. Price, price, price. Honestly the whole account is a waste of time."</p>
+
+      <h3>Your task</h3>
+      <label class="q">Step 1 — Observation. Write three statements of behaviour you would use to open the debrief. No judgement, no interpretation.</label>
+      <textarea data-k="cs21.s1" style="min-height:96px"></textarea>
+      <label class="q">Step 2 — Impact question. Write the single question that would get Nour to compare Call 2 with Calls 1 and 3 herself.</label>
+      <textarea data-k="cs21.s2"></textarea>
+      <label class="q">Step 3 — Standard. One standard is clearly missing from Nour's practice. Name it, with action, condition and measure.</label>
+      <textarea data-k="cs21.s3"></textarea>
+      <label class="q">Step 4 — The comment. Nour's remark about Dr. Karim is a judgement and it is doing damage. Write the question you would ask in response. Do not correct her — ask.</label>
+      <textarea data-k="cs21.s4"></textarea>
+
+      <div class="debrief">
+        <h4>Debrief</h4>
+        <label class="q">1. Compare your three observation statements around the table. Which contained hidden judgement? ("She rushed", "she didn't bother to", "she gave up".)</label>
+        <textarea data-k="cs21.d1"></textarea>
+        <label class="q">2. Nour's problem is not knowledge and not effort. What is it, stated as a single behavioural pattern?</label>
+        <textarea data-k="cs21.d2"></textarea>
+        <label class="q">3. Coaching or counseling? Justify against awareness and cooperation.</label>
+        <textarea data-k="cs21.d3"></textarea>
+        <label class="q">4. What is the risk of debriefing all four calls in one conversation? What would you prioritise, and why?</label>
+        <textarea data-k="cs21.d4"></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ MODULE 3 ============ -->
+<section id="s-m3" data-nav="sec" data-title="Module 3 — Essential Skills">
+  <span class="kicker">Module 3</span>
+  <h1>Mastering Essential Coaching Skills</h1>
+  <p class="lead">Objectives: elicit and improve ideas without taking them over; identify and move up the listening levels; deliver behavioural feedback; use the Johari Window.</p>
+
+  <h2>Eliciting and modifying ideas</h2>
+  <table>
+    <tr><th>Technique</th><th>In practice</th></tr>
+    <tr><td><b>Explain</b></td><td>Say why their ideas are needed. "You were in the room with Dr. Karim. I wasn't. Your read is better than mine."</td></tr>
+    <tr><td><b>Question</b></td><td>Open-ended only. Avoid anything answerable with yes or no.</td></tr>
+    <tr><td><b>Demonstrate</b></td><td>Visible active listening. Put the phone away. Turn the car radio off.</td></tr>
+    <tr><td><b>Reinforce</b></td><td>A nod, sustained attention, and silence long enough for them to keep going.</td></tr>
+  </table>
+  <div class="note">The most underused eliciting technique is silence. Most managers wait about two seconds after asking a question before filling the gap. Wait eight.</div>
+  <h3>Modifying an imperfect idea</h3>
+  <ul>
+    <li><b>Have the rep evaluate it.</b> "What could go wrong with that? What would need to be true for it to work?"</li>
+    <li><b>Support the parts with merit.</b> "The timing is right — going in before the formulary review is smart. Say more about how you'd handle the pharmacist."</li>
+    <li><b>Don't let imperfect ideas be lost.</b> Analysing a weak idea builds the rep's judgement. Killing it builds their silence.</li>
+  </ul>
+
+  <h2>Three levels of listening</h2>
+  <div class="cards">
+    <div class="card"><h4>Level 1 — Internal</h4><p>Focus is on you. You hear the words while your mind constructs your reply or relates it to your own experience. Most management conversations happen here.</p></div>
+    <div class="card"><h4>Level 2 — Focused</h4><p>Sharp focus on the other person. Words, tone, emphasis. You are not preparing your response.</p></div>
+    <div class="card"><h4>Level 3 — Global</h4><p>You hear what is said and what is not. Energy, hesitation, what they avoided, what they said quickly to get past.</p></div>
+  </div>
+  <p><b>Techniques:</b> paraphrasing ("So if I'm hearing you right, the issue isn't access, it's that once you're in the room you're not sure what to lead with"); summarising; reflecting feelings ("It sounds like that call left you pretty discouraged"); clarifying questions ("When you say the account is 'difficult', what specifically happens?").</p>
+
+  <h2>Feedback</h2>
+  <blockquote>Feedback is advice given in the present, addressing past behaviour, to influence future performance.</blockquote>
+  <table>
+    <tr><th style="width:38%">Misconception</th><th>Truth</th></tr>
+    <tr><td>"We do annual appraisals, that's enough."</td><td>Waiting twelve months means the rep repeats the behaviour ~200 working days before hearing about it. Feedback has a short half-life.</td></tr>
+    <tr><td>"It's not my job."</td><td>It is specifically the first-line manager's job — you are the only person who sees the rep in front of the customer.</td></tr>
+    <tr><td>"No news is good news."</td><td>No news is a void, and people fill voids with their own assumptions. You also never identify what is working well enough to spread.</td></tr>
+    <tr><td>"Too much praise spoils people."</td><td>Praise grounded in specific behaviour develops people. Vague praise carries no information and stops meaning anything.</td></tr>
+    <tr><td>"I gave feedback — I told Samy about my problem with Ahmed."</td><td>That is talking about a colleague to a third party. Feedback goes directly to the person concerned.</td></tr>
+  </table>
+  <div class="note"><b>Weak:</b> "I'm glad you're on my team."<br/><b>Strong:</b> "Your approach to the distributor stock issue — mapping their delivery cycle against our order dates — is why we didn't lose two weeks of supply. That's the kind of thinking I want the rest of the team to see."</div>
+
+  <h2>The Johari Window</h2>
+  <table>
+    <tr><th></th><th>Known to self</th><th>Not known to self</th></tr>
+    <tr><td><b>Known to others</b></td><td><b>OPEN / ARENA</b><br/>Shared, honest ground. Productive work happens here.</td><td><b>BLIND SPOT</b><br/>Others see it, you don't. Only <i>feedback</i> shrinks this.</td></tr>
+    <tr><td><b>Not known to others</b></td><td><b>HIDDEN / FA&Ccedil;ADE</b><br/>What you know and conceal. Only <i>self-disclosure</i> shrinks this.</td><td><b>UNKNOWN</b><br/>Untapped potential, undiscovered capability.</td></tr>
+  </table>
+  <p>Two levers, and only two: <b>give feedback</b> and <b>disclose appropriately yourself</b>. A manager who does neither will lead a team that tells them nothing useful.</p>
+
+  <!-- EX 3.1 -->
+  <div class="ex t-ex" id="x-ex31" data-nav="sub" data-tag="ex" data-title="EX 3.1 The Feedback Rewrite">
+    <header><span class="code">EX 3.1</span><span class="name">The Feedback Rewrite</span><span class="meta">12 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> convert vague feedback into behaviour + impact</span><span><b>Format:</b> individual</span></div>
+      <table>
+        <tr><th style="width:36%">What was said</th><th>Rewritten: behaviour + impact</th></tr>
+        <tr><td>"That call went badly."</td><td><textarea data-k="ex31.1"></textarea></td></tr>
+        <tr><td>"You need more energy in front of customers."</td><td><textarea data-k="ex31.2"></textarea></td></tr>
+        <tr><td>"Great job today!"</td><td><textarea data-k="ex31.3"></textarea></td></tr>
+        <tr><td>"You're too soft on the difficult accounts."</td><td><textarea data-k="ex31.4"></textarea></td></tr>
+        <tr><td>"Your CRM discipline is poor."</td><td><textarea data-k="ex31.5"></textarea></td></tr>
+        <tr><td><b>Something you actually said to a rep this month:</b><br/><textarea data-k="ex31.6a" style="min-height:48px"></textarea></td><td><textarea data-k="ex31.6"></textarea></td></tr>
+      </table>
+      <div class="note"><b>Self-check.</b> For each rewrite: does it name a specific event? Does it state what happened as a consequence? Could the rep act on it tomorrow?</div>
+    </div>
+  </div>
+
+  <!-- AC 3.1 -->
+  <div class="ex t-ac" id="x-ac31" data-nav="sub" data-tag="ac" data-title="AC 3.1 The Listening Triad">
+    <header><span class="code">AC 3.1</span><span class="name">The Listening Triad</span><span class="meta">30 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Format:</b> groups of three — Speaker, Listener, Observer. Rotate.</span><span><b>Time:</b> 3 rounds &times; 8 min + 6 min debrief</span></div>
+      <p><b>Setup.</b> The Speaker talks for three minutes about a genuine current challenge with an account or a team member. No hypotheticals.</p>
+      <ul>
+        <li><b>Minute 0&ndash;1 — Listener at Level 1.</b> Deliberately listen internally: plan your response, glance away, relate it to your own experience out loud. <i>This will feel unpleasant. That is the point.</i></li>
+        <li><b>Minute 1&ndash;3 — Listener at Level 2/3.</b> Full attention, no advice. Only paraphrasing, reflecting and clarifying questions. No solutions permitted.</li>
+        <li><b>Minute 3&ndash;5 — Feedback.</b> Speaker describes what the switch felt like. Observer reports specific behaviours that changed.</li>
+      </ul>
+      <h3>Observer tally sheet</h3>
+      <table>
+        <tr><th></th><th>Level 1 phase</th><th>Level 2/3 phase</th></tr>
+        <tr><td>Interruptions</td><td><input type="text" data-k="ac31.i1"/></td><td><input type="text" data-k="ac31.i2"/></td></tr>
+        <tr><td>Questions asked</td><td><input type="text" data-k="ac31.q1"/></td><td><input type="text" data-k="ac31.q2"/></td></tr>
+        <tr><td>Solutions offered</td><td><input type="text" data-k="ac31.s1"/></td><td><input type="text" data-k="ac31.s2"/></td></tr>
+        <tr><td>Longest silence (sec)</td><td><input type="text" data-k="ac31.l1"/></td><td><input type="text" data-k="ac31.l2"/></td></tr>
+        <tr><td>Speaker kept talking?</td><td><input type="text" data-k="ac31.k1"/></td><td><input type="text" data-k="ac31.k2"/></td></tr>
+      </table>
+      <div class="debrief">
+        <h4>Debrief</h4>
+        <label class="q">1. Speakers: at what moment did you notice the shift, and what tipped you off?</label>
+        <textarea data-k="ac31.d1"></textarea>
+        <label class="q">2. Listeners: which was harder to suppress — the advice, or the urge to relate it to your own experience?</label>
+        <textarea data-k="ac31.d2"></textarea>
+        <label class="q">3. Observers: what happened to the <i>length of the speaker's answers</i> between the two phases?</label>
+        <textarea data-k="ac31.d3"></textarea>
+        <label class="q">4. Honestly — what percentage of your coaching conversations last week were Level 1?</label>
+        <textarea data-k="ac31.d4"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- AC 3.2 -->
+  <div class="ex t-ac" id="x-ac32" data-nav="sub" data-tag="ac" data-title="AC 3.2 Blind Spot Exchange">
+    <header><span class="code">AC 3.2</span><span class="name">Blind Spot Exchange</span><span class="meta">20 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> use the Johari model live; experience receiving feedback</span><span><b>Format:</b> pairs who have observed each other during the program</span></div>
+      <p><b>Round 1 — Disclosure (5 min).</b> Each person shares one thing about their own management style the other could not have known — a fear, a habit they dislike in themselves, a situation they find hard. <i>(Shrinking the fa&ccedil;ade.)</i></p>
+      <p><b>Round 2 — Feedback (10 min).</b> Each offers the other one observation of behaviour from this program, plus its impact. Format is mandatory:</p>
+      <blockquote>"During [specific moment], I observed that you [specific behaviour]. The effect on me / on the group was [impact]."</blockquote>
+      <p>The receiver may only respond with "thank you" and one clarifying question. No defending, no explaining.</p>
+      <div class="debrief">
+        <h4>Round 3 — Private reflection (5 min)</h4>
+        <label class="q">The feedback I received that I did not expect:</label>
+        <textarea data-k="ac32.r1"></textarea>
+        <label class="q">My first internal reaction to it:</label>
+        <textarea data-k="ac32.r2"></textarea>
+        <label class="q">What I will actually do with it:</label>
+        <textarea data-k="ac32.r3"></textarea>
+      </div>
+      <div class="note"><b>Facilitator note.</b> Round 2 is where the group learns that receiving feedback is a skill, not a passive event. If the room fills with explanations and defence, stop and name it — that is the most valuable teaching moment in the module.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODULE 4 ============ -->
+<section id="s-m4" data-nav="sec" data-title="Module 4 — Styles &amp; CLEAR">
+  <span class="kicker">Module 4</span>
+  <h1>Advanced Models and Situational Styles</h1>
+  <p class="lead">Objectives: select a coaching style from competence and commitment; run a full CLEAR conversation; recognise the failure mode of one style for everyone.</p>
+
+  <h2>Four styles</h2>
+  <table>
+    <tr><th>Style</th><th>Profile</th><th>Use when</th><th>Field example</th></tr>
+    <tr><td><b>Directive</b></td><td>High direction<br/>Low support</td><td>New to the task; no ideas at all; performance well below standard; compliance, safety or crisis.</td><td>"For this first call, use this structure: open with the patient-population question, present only the primary endpoint, close by asking for one patient. Nothing else."</td></tr>
+    <tr><td><b>Participative<br/>(Coaching)</b></td><td>High direction<br/>High support</td><td>Improving but not yet at standard; motivated; has ideas needing refinement.</td><td>"Your sales were excellent in hospital and flat in private clinics. What are you doing differently in the two settings?"</td></tr>
+    <tr><td><b>Supportive</b></td><td>Low direction<br/>High support</td><td>Experienced and capable, temporary confidence or motivation dip; delegating fully.</td><td>"You know the oncology accounts better than I do. Design the approach for the new indication launch. Tell me what you need from me."</td></tr>
+    <tr><td><b>Delegating<br/>(Encouraging)</b></td><td>Low direction<br/>High recognition</td><td>Consistently at or above standard; making a behaviour permanent; building toward a wider role.</td><td>Reinforce what works and get out of the way.</td></tr>
+  </table>
+  <div class="note"><b>The common failure.</b> Most managers have one native style and apply it to everyone. Directive managers stunt their strong reps. Supportive managers abandon their new ones. Diagnose per person, per task.</div>
+
+  <h2>The CLEAR model</h2>
+  <table>
+    <tr><th style="width:16%">Stage</th><th>Purpose</th><th>Questions</th></tr>
+    <tr><td><b>C</b>ontract</td><td>Agree what the conversation is for and how it will run. Skipping this is why coaching conversations drift.</td><td>"What would you like to get out of the next twenty minutes?" / "What would make this a good use of your time?"</td></tr>
+    <tr><td><b>L</b>isten</td><td>Understand from their perspective before contributing anything. Level 2 and 3.</td><td>"Tell me more about that." / "What's your sense of what's happening?"</td></tr>
+    <tr><td><b>E</b>xplore</td><td>Deepen understanding, generate options.</td><td>"What have you tried?" / "If anything were possible, what would you do?" / "What are the pros and cons of each?"</td></tr>
+    <tr><td><b>A</b>ction</td><td>Convert exploration into commitment. Without this it is just a good talk.</td><td>"What is the very first step?" / "By when?" / "On a scale of one to ten, how committed are you?" <i>(Under 8 — ask what would make it an 8.)</i></td></tr>
+    <tr><td><b>R</b>eview</td><td>Close the loop; get feedback on the conversation itself.</td><td>"So your next steps are X, Y, Z — have I got that right?" / "How was this conversation for you?"</td></tr>
+  </table>
+
+  <!-- EX 4.1 -->
+  <div class="ex t-ex" id="x-ex41" data-nav="sub" data-tag="ex" data-title="EX 4.1 Style Diagnosis">
+    <header><span class="code">EX 4.1</span><span class="name">Style Diagnosis: Four Reps, One Week</span><span class="meta">20 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> break the one-style habit</span><span><b>Format:</b> individual 10 min, table discussion 10 min</span></div>
+      <table>
+        <tr><th style="width:32%">Rep &amp; situation</th><th style="width:11%">Comp.</th><th style="width:11%">Commit.</th><th style="width:16%">Style</th><th>Your opening line</th></tr>
+        <tr><td><b>Yasmin</b> — 3 months in role. About to present the health-economics dossier to a hospital pharmacy committee for the first time. Eager, visibly nervous, has never seen a committee meeting.</td>
+          <td><select data-k="ex41.1c"><option value=""></option><option>High</option><option>Low</option></select></td>
+          <td><select data-k="ex41.1k"><option value=""></option><option>High</option><option>Low</option></select></td>
+          <td><select data-k="ex41.1s"><option value=""></option><option>Directive</option><option>Participative</option><option>Supportive</option><option>Delegating</option></select></td>
+          <td><textarea data-k="ex41.1o"></textarea></td></tr>
+        <tr><td><b>Tarek</b> — 7 years, top performer. Asked to mentor two new reps. Says "I'm a salesman, not a trainer" but has not refused.</td>
+          <td><select data-k="ex41.2c"><option value=""></option><option>High</option><option>Low</option></select></td>
+          <td><select data-k="ex41.2k"><option value=""></option><option>High</option><option>Low</option></select></td>
+          <td><select data-k="ex41.2s"><option value=""></option><option>Directive</option><option>Participative</option><option>Supportive</option><option>Delegating</option></select></td>
+          <td><textarea data-k="ex41.2o"></textarea></td></tr>
+        <tr><td><b>Mona</b> — 4 years, solid. Territory redrawn; lost two favourite accounts, gained a difficult hospital. Numbers dipped. Says "I'll figure it out" but her call plan is unchanged.</td>
+          <td><select data-k="ex41.3c"><option value=""></option><option>High</option><option>Low</option></select></td>
+          <td><select data-k="ex41.3k"><option value=""></option><option>High</option><option>Low</option></select></td>
+          <td><select data-k="ex41.3s"><option value=""></option><option>Directive</option><option>Participative</option><option>Supportive</option><option>Delegating</option></select></td>
+          <td><textarea data-k="ex41.3o"></textarea></td></tr>
+        <tr><td><b>Sherif</b> — 2 years, ambitious. Wants promotion to KAM. Strong results, but his cycle-meeting contributions consist of criticising the marketing campaign.</td>
+          <td><select data-k="ex41.4c"><option value=""></option><option>High</option><option>Low</option></select></td>
+          <td><select data-k="ex41.4k"><option value=""></option><option>High</option><option>Low</option></select></td>
+          <td><select data-k="ex41.4s"><option value=""></option><option>Directive</option><option>Participative</option><option>Supportive</option><option>Delegating</option></select></td>
+          <td><textarea data-k="ex41.4o"></textarea></td></tr>
+      </table>
+      <div class="debrief">
+        <h4>Debrief</h4>
+        <label class="q">1. Where did your table disagree most? Disagreement usually means the <i>task</i> was defined at the wrong level of specificity.</label>
+        <textarea data-k="ex41.d1"></textarea>
+        <label class="q">2. Which of the four is closest to a counseling conversation? Which is closest to a delegation opportunity?</label>
+        <textarea data-k="ex41.d2"></textarea>
+        <label class="q">3. Which style did you choose most often? That is probably your default. What does your default cost you?</label>
+        <textarea data-k="ex41.d3"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- AC 4.1 -->
+  <div class="ex t-ac" id="x-ac41" data-nav="sub" data-tag="ac" data-title="AC 4.1 The CLEAR Fishbowl">
+    <header><span class="code">AC 4.1</span><span class="name">The CLEAR Fishbowl</span><span class="meta">40 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Format:</b> groups of 4&ndash;6. Coach, Coachee, Observers assigned to CLEAR stages.</span><span><b>Time:</b> 2 rounds &times; 15 min + 10 min</span></div>
+      <p><b>Setup.</b> The Coachee brings a real, current challenge. Not a hypothetical.</p>
+      <ol>
+        <li>The Coach runs a 12-minute CLEAR conversation.</li>
+        <li>The Coach may not offer a solution at any point. Not one.</li>
+        <li>Each Observer tracks one stage and holds a card. If the Coach skips a stage or jumps ahead, the Observer raises the card and the Coach must return to it.</li>
+        <li>Observers say nothing until the debrief.</li>
+      </ol>
+      <h3>Observer record sheet</h3>
+      <table>
+        <tr><th style="width:16%">Stage</th><th style="width:14%">Happened?</th><th>Best question the Coach asked</th><th>What was missing</th></tr>
+        <tr><td>Contract</td><td><input type="text" data-k="ac41.c1"/></td><td><textarea data-k="ac41.c2"></textarea></td><td><textarea data-k="ac41.c3"></textarea></td></tr>
+        <tr><td>Listen</td><td><input type="text" data-k="ac41.l1"/></td><td><textarea data-k="ac41.l2"></textarea></td><td><textarea data-k="ac41.l3"></textarea></td></tr>
+        <tr><td>Explore</td><td><input type="text" data-k="ac41.e1"/></td><td><textarea data-k="ac41.e2"></textarea></td><td><textarea data-k="ac41.e3"></textarea></td></tr>
+        <tr><td>Action</td><td><input type="text" data-k="ac41.a1"/></td><td><textarea data-k="ac41.a2"></textarea></td><td><textarea data-k="ac41.a3"></textarea></td></tr>
+        <tr><td>Review</td><td><input type="text" data-k="ac41.r1"/></td><td><textarea data-k="ac41.r2"></textarea></td><td><textarea data-k="ac41.r3"></textarea></td></tr>
+      </table>
+      <p><b>Talk-time tally.</b> Target ratio: Coach 30% / Coachee 70%.</p>
+      <table>
+        <tr><th>Coach spoke (min)</th><th>Coachee spoke (min)</th><th>Ratio</th></tr>
+        <tr><td><input type="text" data-k="ac41.t1"/></td><td><input type="text" data-k="ac41.t2"/></td><td><input type="text" data-k="ac41.t3"/></td></tr>
+      </table>
+      <div class="debrief">
+        <h4>Debrief</h4>
+        <label class="q">1. Coachee first: did you leave with an action you actually intend to take? Rate your commitment 1&ndash;10.</label>
+        <textarea data-k="ac41.d1"></textarea>
+        <label class="q">2. Which stage was hardest for the Coach? (Almost always Contract or Action — Contract feels like a waste of time; Action feels like pressure.)</label>
+        <textarea data-k="ac41.d2"></textarea>
+        <label class="q">3. Where did the Coach come closest to giving a solution? What was the tell?</label>
+        <textarea data-k="ac41.d3"></textarea>
+        <label class="q">4. What did the talk-time ratio come out at? What would have to change to hit 30/70?</label>
+        <textarea data-k="ac41.d4"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- CS 4.1 -->
+  <div class="ex t-cs" id="x-cs41" data-nav="sub" data-tag="cs" data-title="CS 4.1 Key Account Stalled">
+    <header><span class="code">CS 4.1</span><span class="name">The Key Account That Stopped Moving</span><span class="meta">30 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Format:</b> table groups. Read 5, plan 10, run opening 5, debrief 10.</span></div>
+      <p><b>Background.</b> <b>Amr</b> is a senior representative with six years' experience and a reputation as the best relationship-builder on your team. He owns your largest hospital account — 22% of district revenue. Over the last two cycles the account has flatlined. A new head of pharmacy arrived four months ago. The formulary review is in eight weeks.</p>
+      <h3>What you know</h3>
+      <ul>
+        <li>Amr's call rate on the account is unchanged, but 80% of his calls are with the same two physicians he has known for years.</li>
+        <li>He has met the new head of pharmacy once — CRM note: "introductory, positive."</li>
+        <li>A competitor has run two educational meetings at the hospital this cycle. Amr has run none.</li>
+        <li>Amr's results elsewhere in the territory are strong.</li>
+        <li>In the last cycle meeting: "The relationships are solid. It's just a transition period. It'll come back."</li>
+      </ul>
+      <p><b>Your read.</b> Amr's competence at relationship selling is very high. His competence at navigating a changed stakeholder map is unproven. His commitment to the account is high; his commitment to <i>changing his approach</i> to it is low. He is not resistant — he genuinely believes the relationships will carry it.</p>
+      <h3>Your task</h3>
+      <label class="q">Step 1 — Define the task precisely, then choose a style. (Competence and commitment differ depending on how you define the task.)</label>
+      <textarea data-k="cs41.s1"></textarea>
+      <label class="q">Step 2 — Contract. Write your opening two sentences. They must open the conversation without triggering a defence of the relationships.</label>
+      <textarea data-k="cs41.s2"></textarea>
+      <label class="q">Step 3 — Explore. Three questions that would get Amr to notice the stakeholder map has changed — without you telling him it has.</label>
+      <textarea data-k="cs41.s3" style="min-height:96px"></textarea>
+      <label class="q">Step 4 — The trap. Amr says: "Look, I've known these guys for six years. I know this account better than anyone." Write your response. It must not be a rebuttal.</label>
+      <textarea data-k="cs41.s4"></textarea>
+      <label class="q">Step 5 — Action. What would a good commitment from Amr look like? Write it as a standard: action, condition, measure.</label>
+      <textarea data-k="cs41.s5"></textarea>
+      <div class="debrief">
+        <h4>Debrief</h4>
+        <label class="q">1. The eight-week deadline creates real time pressure. Does time pressure justify switching to a directive style? Argue both sides.</label>
+        <textarea data-k="cs41.d1"></textarea>
+        <label class="q">2. Amr is a high performer. What is the risk to your relationship if you get this wrong? What is the risk if you avoid it?</label>
+        <textarea data-k="cs41.d2"></textarea>
+        <label class="q">3. Several tables will have written Step 4 as a version of "yes, but." What is the alternative, and why is it harder?</label>
+        <textarea data-k="cs41.d3"></textarea>
+        <label class="q">4. If Amr genuinely cannot see the problem after a full coaching conversation, what have you learned — and what changes?</label>
+        <textarea data-k="cs41.d4"></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ============ MODULE 5 ============ -->
+<section id="s-m5" data-nav="sec" data-title="Module 5 — Counseling">
+  <span class="kicker">Module 5</span>
+  <h1>Navigating Difficult Conversations: Counseling</h1>
+  <p class="lead">Objectives: distinguish workplace counseling from coaching and from therapy; work the five-step escalation and return to coaching at the point of recognition; diagnose why performance is not improving.</p>
+
+  <div class="note">A boundary first. As a manager you are not a therapist. Workplace counseling does not address personal or psychological issues. If personal problems surface, your role is to refer, not to treat.</div>
+
+  <blockquote>Counseling is the process used by a manager when the representative is <b>unaware of</b>, or <b>unconcerned about</b>, the consequences of their behaviour.</blockquote>
+  <p>The representative's internal position differs sharply from a coaching situation: "My results are fine, so there's no problem." Genuine unawareness of the effect of their actions. "What I do doesn't affect anyone else." Reluctance to examine their own behaviour at all.</p>
+  <p><b>The escalation principle.</b> Each step is more serious than the last. At <i>any</i> step, the moment the representative genuinely recognises the problem, you stop escalating and switch back to coaching. This is not a punishment sequence to be completed — it is a ladder you climb only as far as necessary and descend as soon as you can.</p>
+
+  <h2>The five steps</h2>
+  <table>
+    <tr><th style="width:22%">Step</th><th>What you say</th><th style="width:22%">If they recognise it</th></tr>
+    <tr><td><b>1. Focus on the behaviour</b></td><td>"Karim, in the last four cycle meetings you have arrived between ten and fifteen minutes after the start time."</td><td><b>Stop. Go to coaching.</b></td></tr>
+    <tr><td><b>2. Impact on others</b></td><td>"When you arrive late, we either wait — which costs seven people ten minutes — or we repeat the opening, which means the meeting runs over and everyone's field time is cut. Last cycle that happened four times."</td><td><b>Stop. Go to coaching.</b></td></tr>
+    <tr><td><b>3. Consequences to them</b></td><td>"Punctuality and respect for colleagues' time are part of how reliability is assessed here. You've told me you want the key account role. This behaviour is now part of how you're perceived, and it works against that."</td><td><b>Stop. Go to coaching.</b></td></tr>
+    <tr><td><b>4. Manager's alternatives</b></td><td>"I require you to be on time for all future cycle meetings. I am documenting this as a formal verbal warning. If the behaviour continues, the next step is a written warning."</td><td>Formal step. Documented.</td></tr>
+    <tr><td><b>5. Ending the relationship</b></td><td>Conducted with HR, fully documented, and never a surprise to the representative.</td><td>&mdash;</td></tr>
+  </table>
+  <div class="note"><b>The discipline.</b> Do not skip steps to save time, and do not climb further than the response requires. Managers fail this in both directions — some jump to Step 4 out of frustration, others cycle at Step 1 for a year and then escalate to Step 4 without warning.</div>
+
+  <!-- EX 5.1 -->
+  <div class="ex t-ex" id="x-ex51" data-nav="sub" data-tag="ex" data-title="EX 5.1 The Escalation Ladder">
+    <header><span class="code">EX 5.1</span><span class="name">The Escalation Ladder</span><span class="meta">20 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> write all five steps for one real situation</span><span><b>Format:</b> individual 12 min, pairs 8 min</span></div>
+      <p>Choose a real behaviour on your team that you have raised at least once with no change.</p>
+      <label class="q">The behaviour, stated observably:</label>
+      <textarea data-k="ex51.b"></textarea>
+      <table>
+        <tr><th style="width:26%">Step</th><th>Your words</th></tr>
+        <tr><td>1. Behaviour</td><td><textarea data-k="ex51.1"></textarea></td></tr>
+        <tr><td>2. Impact on others</td><td><textarea data-k="ex51.2"></textarea></td></tr>
+        <tr><td>3. Consequences to the rep</td><td><textarea data-k="ex51.3"></textarea></td></tr>
+        <tr><td>4. Manager's alternatives</td><td><textarea data-k="ex51.4"></textarea></td></tr>
+        <tr><td>5. Ending the relationship</td><td><textarea data-k="ex51.5"></textarea></td></tr>
+      </table>
+      <div class="debrief">
+        <h4>Answer honestly</h4>
+        <label class="q">Which step was hardest to write?</label><textarea data-k="ex51.h1"></textarea>
+        <label class="q">Which step do you habitually skip in real conversations?</label><textarea data-k="ex51.h2"></textarea>
+        <label class="q">How many times have you actually had Step 1 with this person, in these exact words?</label><textarea data-k="ex51.h3"></textarea>
+        <p><b>Pair check.</b> Read Steps 1 and 2 aloud. Your partner listens for judgement, for softening ("I just wondered if maybe..."), and for the word "always". All three destroy the step.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CS 5.1 -->
+  <div class="ex t-cs" id="x-cs51" data-nav="sub" data-tag="cs" data-title="CS 5.1 Marina and the Reports">
+    <header><span class="code">CS 5.1</span><span class="name">Marina and the Report Errors</span><span class="meta">15 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Purpose:</b> see a counseling conversation return to coaching mid-escalation</span></div>
+      <p><b>Background.</b> Marina is a senior analyst supporting your district — highly skilled, but the last three sales-performance reports contained basic data errors. When Youssef raised the first, she called it "a small mistake."</p>
+      <div class="dialog">
+        <p><b>Youssef:</b> "Marina, I need to talk about the last three performance reports. In each one the territory totals in the summary table didn't match the underlying data — a 40,000-unit discrepancy in the most recent one." <span class="stage">(Step 1: behaviour)</span></p>
+        <p><b>Marina:</b> "It was a small typo, Youssef. The overall conclusions were correct."</p>
+        <p><b>Youssef:</b> "I understand that's your view. Let's talk about the effect. The regional director used the summary table in her presentation to the leadership team. She was corrected in the meeting. She then asked my team to re-verify every figure in the previous six reports — two people, a day and a half." <span class="stage">(Step 2: impact on others)</span></p>
+        <p><b>Marina:</b> "I didn't realise it caused that. I'm sorry."</p>
+        <p><b>Youssef:</b> "I appreciate that. Because you've seen the effect, I'm confident we can solve it. So — what's changed in how these reports get produced?" <span class="stage">(returns to coaching)</span></p>
+        <p><b>Marina:</b> "Honestly, the source file changed format two months ago and I've been reconciling manually under time pressure. I should have flagged it."</p>
+        <p><b>Youssef:</b> "What would a reliable check look like before submission?"</p>
+      </div>
+      <div class="debrief">
+        <h4>Discussion</h4>
+        <label class="q">1. Youssef stopped escalating at the point Marina acknowledged impact. What would have been lost if he had continued to Step 3 anyway?</label>
+        <textarea data-k="cs51.d1"></textarea>
+        <label class="q">2. The root cause — a changed source file — only surfaced <i>after</i> the switch back to coaching. Why did it not surface at Step 1?</label>
+        <textarea data-k="cs51.d2"></textarea>
+        <label class="q">3. Youssef never says "you should have told me." He asks a question instead. What is the difference in what Marina does next?</label>
+        <textarea data-k="cs51.d3"></textarea>
+        <label class="q">4. If Marina had responded to Step 2 with "that's the director's problem for not checking," what would Youssef's Step 3 sound like? Write it.</label>
+        <textarea data-k="cs51.d4"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- AC 5.1 -->
+  <div class="ex t-ac" id="x-ac51" data-nav="sub" data-tag="ac" data-title="AC 5.1 Counseling Role-Play">
+    <header><span class="code">AC 5.1</span><span class="name">The Counseling Role-Play: Unaware and Unconcerned</span><span class="meta">45 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Format:</b> triads — Manager, Representative, Observer. Rotate all three scenarios.</span><span><b>Time:</b> 3 rounds &times; 12 min + 9 min</span></div>
+      <div class="note"><b>Rules for the Representative.</b> Play the resistance honestly. Do not concede in the first thirty seconds to be kind — that teaches the Manager nothing. Each scenario says at which step you genuinely accept the point. Concede <i>there</i>.<br/><br/><b>Rules for the Manager.</b> Climb only as far as necessary. Over-escalation is marked down as heavily as under-escalation.</div>
+      <table>
+        <tr><th style="width:20%">Scenario</th><th>Behaviour &amp; rep's position</th><th style="width:20%">Concedes at</th></tr>
+        <tr><td><b>A — Sample compliance breach</b></td><td>The rep left a sample box in an unsecured area of a clinic waiting room for about 40 minutes. Position: "Nothing happened. Everyone does this. The clinic is safe."</td><td><b>Step 3</b> — personal consequence; this is a documented compliance matter attaching to their record.</td></tr>
+        <tr><td><b>B — CRM ghost entries</b></td><td>Twelve calls logged last cycle for a clinic closed three weeks for renovation. Position: first "the system must be wrong," then "I made the calls by phone, I just logged them as visits."</td><td><b>Step 2</b>, but only after the Manager states the impact on the accuracy of district targeting data. If the rep never concedes, this legitimately reaches Step 4.</td></tr>
+        <tr><td><b>C — Cycle meeting cynic</b></td><td>In the last three cycle meetings the rep answered each new campaign with "this won't work in my territory" before details were presented. Two junior reps now echo the phrase. Position: "I'm being realistic. Someone has to say it."</td><td><b>Step 2</b>, when the impact on the two junior reps is named specifically.</td></tr>
+      </table>
+      <h3>Observer scorecard</h3>
+      <table>
+        <tr><th style="width:52%"></th><th style="width:14%">Yes / No</th><th>Note</th></tr>
+        <tr><td>Opened with observable behaviour, no judgement</td><td><input type="text" data-k="ac51.1a"/></td><td><input type="text" data-k="ac51.1b"/></td></tr>
+        <tr><td>Stated impact with specifics, not generalities</td><td><input type="text" data-k="ac51.2a"/></td><td><input type="text" data-k="ac51.2b"/></td></tr>
+        <tr><td>Stopped escalating at the point of recognition</td><td><input type="text" data-k="ac51.3a"/></td><td><input type="text" data-k="ac51.3b"/></td></tr>
+        <tr><td>Over-escalated (climbed past the concession point)</td><td><input type="text" data-k="ac51.4a"/></td><td><input type="text" data-k="ac51.4b"/></td></tr>
+        <tr><td>Switched back to coaching after concession</td><td><input type="text" data-k="ac51.5a"/></td><td><input type="text" data-k="ac51.5b"/></td></tr>
+        <tr><td>Used the word "always" or "never"</td><td><input type="text" data-k="ac51.6a"/></td><td><input type="text" data-k="ac51.6b"/></td></tr>
+        <tr><td>Manager talk-time percentage</td><td><input type="text" data-k="ac51.7a"/></td><td><input type="text" data-k="ac51.7b"/></td></tr>
+      </table>
+      <div class="debrief">
+        <h4>Debrief</h4>
+        <label class="q">1. Representatives: at which point did the conversation change for you? Was it the words or the tone?</label>
+        <textarea data-k="ac51.d1"></textarea>
+        <label class="q">2. Managers: how did it feel to stop escalating? Most report an urge to add "and don't let it happen again." What does that sentence cost?</label>
+        <textarea data-k="ac51.d2"></textarea>
+        <label class="q">3. Which scenario was hardest, and why? (Usually C — the behaviour is attitudinal and the impact is indirect.)</label>
+        <textarea data-k="ac51.d3"></textarea>
+        <label class="q">4. In Scenario B, some triads reached Step 4. Appropriate, or a failure to establish impact at Step 2?</label>
+        <textarea data-k="ac51.d4"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <h2>Troubleshooting: why isn't performance improving?</h2>
+  <p>Before repeating the same process louder, diagnose:</p>
+  <ul>
+    <li><b>Factors other than the observed behaviour.</b> A personal issue, health, a change in circumstance. Is the behaviour a symptom of something you have not asked about?</li>
+    <li><b>The deviation is unimportant.</b> Are you coaching call rate while the actual problem is targeting?</li>
+    <li><b>Consequences are not real.</b> Have consequences been stated <i>and</i> observed to occur?</li>
+    <li><b>You are doing most of the talking.</b> If sessions are 90% you, they are not coaching sessions.</li>
+    <li><b>Past experience says you will not act.</b> A history of stating consequences without follow-through empties your words regardless of construction. The hardest to fix; takes months.</li>
+    <li><b>You are reinforcing the wrong behaviour.</b> The rep who escalates every problem gets more of your attention than the one who solves them quietly.</li>
+    <li><b>The standard was never actually agreed.</b> Was it stated, or assumed? Could the rep repeat it back?</li>
+  </ul>
+
+  <!-- EX 5.2 -->
+  <div class="ex t-ex" id="x-ex52" data-nav="sub" data-tag="ex" data-title="EX 5.2 Root Cause Diagnostic">
+    <header><span class="code">EX 5.2</span><span class="name">Root Cause Diagnostic</span><span class="meta">20 min</span></header>
+    <div class="body">
+      <div class="meta-row"><span><b>Format:</b> individual 8 min, triad consultation 12 min</span></div>
+      <p>Name a person and a behaviour you have addressed at least twice with no sustained change.</p>
+      <table>
+        <tr><th>Person (initials)</th><th>Behaviour</th><th>Times addressed</th><th>Over what period</th></tr>
+        <tr><td><input type="text" data-k="ex52.p"/></td><td><input type="text" data-k="ex52.b"/></td><td><input type="text" data-k="ex52.n"/></td><td><input type="text" data-k="ex52.t"/></td></tr>
+      </table>
+      <p>Score each root cause 1&ndash;5 (1 = definitely not, 5 = almost certainly).</p>
+      <table>
+        <tr><th style="width:40%">Root cause</th><th style="width:12%">Score</th><th>Evidence for my score</th></tr>
+        <tr><td>Factors other than the observed behaviour</td><td><input type="text" data-k="ex52.r1s"/></td><td><textarea data-k="ex52.r1e"></textarea></td></tr>
+        <tr><td>The deviation is genuinely unimportant</td><td><input type="text" data-k="ex52.r2s"/></td><td><textarea data-k="ex52.r2e"></textarea></td></tr>
+        <tr><td>Consequences are not real or not believed</td><td><input type="text" data-k="ex52.r3s"/></td><td><textarea data-k="ex52.r3e"></textarea></td></tr>
+        <tr><td>I do most of the talking</td><td><input type="text" data-k="ex52.r4s"/></td><td><textarea data-k="ex52.r4e"></textarea></td></tr>
+        <tr><td>Past experience says I won't act</td><td><input type="text" data-k="ex52.r5s"/></td><td><textarea data-k="ex52.r5e"></textarea></td></tr>
+        <tr><td>I am reinforcing the wrong behaviour</td><td><input type="text" data-k="ex52.r6s"/></td><td><textarea data-k="ex52.r6e"></textarea></td></tr>
+        <tr><td>The standard was never actually agreed</td><td><input type="text" data-k="ex52.r7s"/></td><td><textarea data-k="ex52.r7e"></textarea></td></tr>
+      </table>
+      <div class="debrief">
+        <h4>Triad consultation</h4>
+        <p>Present your situation in two minutes. Your colleagues may only ask questions — no advice. Their job is to challenge your top-scored cause and test whether you have evidence or an assumption.</p>
+        <label class="q">My revised top root cause is:</label><textarea data-k="ex52.f1"></textarea>
+        <label class="q">The one thing I will change is:</label><textarea data-k="ex52.f2"></textarea>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACTION PLAN ============ -->
+<section id="s-plan" data-nav="sec" data-title="Personal Action Plan">
+  <span class="kicker">Application</span>
+  <h1>Personal Action Plan</h1>
+  <p class="lead">Learning is only effective when it is applied. Complete this before you leave the room, and review it at 30, 60 and 90 days.</p>
+
+  <h2>The principles, compressed</h2>
+  <ul>
+    <li>Ask, don't tell.</li>
+    <li>Focus on behaviour, not judgement.</li>
+    <li>Listen more than you speak. Target 30/70.</li>
+    <li>Foster ownership, because ownership produces commitment.</li>
+    <li>Adapt your style to the person and the task, not to your own comfort.</li>
+    <li>Diagnose awareness and cooperation before choosing coaching or counseling.</li>
+    <li>Escalate only as far as required, and return to coaching the moment recognition appears.</li>
+  </ul>
+
+  <h2>Part 1 — Commitments</h2>
+  <label class="q">1. The one concept from this program that resonated most with me:</label>
+  <textarea data-k="plan.1"></textarea>
+  <label class="q">2. One specific coaching skill I will consciously practise this week:</label>
+  <table>
+    <tr><th>Skill</th><th>With whom</th><th>In what situation</th></tr>
+    <tr><td><input type="text" data-k="plan.2a"/></td><td><input type="text" data-k="plan.2b"/></td><td><input type="text" data-k="plan.2c"/></td></tr>
+  </table>
+  <label class="q">3. One "telling" habit I will replace with a "coaching" habit:</label>
+  <table>
+    <tr><th>Telling habit</th><th>Coaching habit replacing it</th></tr>
+    <tr><td><textarea data-k="plan.3a"></textarea></td><td><textarea data-k="plan.3b"></textarea></td></tr>
+  </table>
+  <label class="q">4. I will schedule a full CLEAR conversation with a team member:</label>
+  <table>
+    <tr><th>Date</th><th>Team member</th><th>Topic</th></tr>
+    <tr><td><input type="text" data-k="plan.4a"/></td><td><input type="text" data-k="plan.4b"/></td><td><input type="text" data-k="plan.4c"/></td></tr>
+  </table>
+  <label class="q">5. Accountability — how I will hold myself to this:</label>
+  <textarea data-k="plan.5"></textarea>
+
+  <h2>Part 2 — The 30 / 60 / 90 plan</h2>
+  <table>
+    <tr><th style="width:34%"></th><th>By Day 30</th><th>By Day 60</th><th>By Day 90</th></tr>
+    <tr><td>Coaching conversations held</td><td><input type="text" data-k="p90.1a"/></td><td><input type="text" data-k="p90.1b"/></td><td><input type="text" data-k="p90.1c"/></td></tr>
+    <tr><td>Standards written and agreed with the team</td><td><input type="text" data-k="p90.2a"/></td><td><input type="text" data-k="p90.2b"/></td><td><input type="text" data-k="p90.2c"/></td></tr>
+    <tr><td>Talk-time ratio target</td><td><input type="text" data-k="p90.3a"/></td><td><input type="text" data-k="p90.3b"/></td><td><input type="text" data-k="p90.3c"/></td></tr>
+    <tr><td>One counseling conversation I have been avoiding</td><td><input type="text" data-k="p90.4a"/></td><td><input type="text" data-k="p90.4b"/></td><td><input type="text" data-k="p90.4c"/></td></tr>
+    <tr><td>Evidence I will look for that it's working</td><td><input type="text" data-k="p90.5a"/></td><td><input type="text" data-k="p90.5b"/></td><td><input type="text" data-k="p90.5c"/></td></tr>
+  </table>
+
+  <h2>Part 3 — Team coaching map</h2>
+  <table id="teamMap">
+    <tr><th>Representative</th><th>Task to coach</th><th style="width:10%">Comp.</th><th style="width:10%">Commit.</th><th style="width:14%">Style</th><th style="width:12%">Date</th></tr>
+  </table>
+</section>
+
+<!-- ============ APPENDIX ============ -->
+<section id="s-app" data-nav="sec" data-title="Question Bank &amp; Quick Reference">
+  <span class="kicker">Appendix</span>
+  <h1>Coaching Question Bank</h1>
+  <div class="cards">
+    <div class="card"><h4>Opening / Contract</h4><ul><li>What would make this a good use of the next twenty minutes?</li><li>What do you want to leave this conversation with?</li><li>Where would you like to start?</li></ul></div>
+    <div class="card"><h4>Understanding</h4><ul><li>What's your read on what's happening?</li><li>Walk me through the last conversation — what did you say, what did they say?</li><li>What have you already tried?</li><li>What's different about this account compared with the ones that are working?</li></ul></div>
+    <div class="card"><h4>Surfacing the real issue</h4><ul><li>When you say "difficult", what specifically happens?</li><li>What do you think is actually behind that objection?</li><li>What's the single biggest obstacle?</li><li>What are you assuming that might not be true?</li></ul></div>
+    <div class="card"><h4>Generating options</h4><ul><li>What options have you considered?</li><li>If anything were possible, what would you do?</li><li>What would you advise a colleague in this position?</li><li>What's the option you've dismissed — and why?</li></ul></div>
+    <div class="card"><h4>Testing an idea</h4><ul><li>What would need to be true for that to work?</li><li>What could go wrong with it?</li><li>What's the strongest argument against your own plan?</li></ul></div>
+    <div class="card"><h4>Commitment &amp; close</h4><ul><li>What is the very first step?</li><li>What do you need from me?</li><li>By when will you have started?</li><li>On a scale of one to ten, how committed are you? What would make it an eight?</li><li>How was this conversation for you?</li></ul></div>
+  </div>
+
+  <h1 style="margin-top:34px">Quick Reference Cards</h1>
+  <h2>Coach or counsel?</h2>
+  <table>
+    <tr><th></th><th>Aware</th><th>Unaware</th></tr>
+    <tr><td><b>Cooperative</b></td><td><b>COACH</b></td><td>Coach — start by building awareness with behaviour + impact</td></tr>
+    <tr><td><b>Uncooperative</b></td><td><b>COUNSEL</b></td><td><b>COUNSEL</b></td></tr>
+  </table>
+  <h2>Style selection</h2>
+  <table>
+    <tr><th></th><th>Low commitment</th><th>High commitment</th></tr>
+    <tr><td><b>Low competence</b></td><td>Directive</td><td>Participative / Coaching</td></tr>
+    <tr><td><b>High competence</b></td><td>Supportive</td><td>Delegating / Encouraging</td></tr>
+  </table>
+  <h2>The four coaching questions</h2>
+  <p>1. What are the results? &nbsp;&rarr;&nbsp; 2. What caused them? &nbsp;&rarr;&nbsp; 3. What is the standard? &nbsp;&rarr;&nbsp; 4. What do we do about it?</p>
+  <h2>CLEAR</h2>
+  <p><b>C</b>ontract &rarr; <b>L</b>isten &rarr; <b>E</b>xplore &rarr; <b>A</b>ction &rarr; <b>R</b>eview</p>
+  <h2>Behavioural standard</h2>
+  <p><b>Action + Condition + Measure</b></p>
+  <h2>Counseling escalation</h2>
+  <p>1. Behaviour &rarr; 2. Impact on others &rarr; 3. Consequence to them &rarr; 4. Formal alternatives &rarr; 5. End of relationship</p>
+  <blockquote class="gold">Stop the moment they recognise the problem. Return to coaching.</blockquote>
+
+  <footer class="f">GENIO Talent Development&reg; &mdash; Coaching &amp; Counseling for Pharmaceutical Sales Managers. Online companion to the participant manual.</footer>
+</section>
+  </div>
+</div>
+</div>
+
+<div id="modal" role="dialog" aria-modal="true">
+  <div class="box">
+    <h3>Save this workbook as a PDF</h3>
+    <p>Your typed answers are included. Choose how much to include &mdash; a single section is faster and lighter on a phone.</p>
+    <div class="row">
+      <button class="solid" onclick="doPdf('all')">Whole workbook</button>
+      <button onclick="doPdf('current')">This section only</button>
+    </div>
+    <p style="font-size:13.5px;color:#5a6675;margin-top:16px">Prefer your browser's own print-to-PDF? It produces sharper text and selectable content.</p>
+    <div class="row">
+      <button onclick="nativePrint()">Use browser print instead</button>
+      <button onclick="closePdf()">Cancel</button>
+    </div>
+  </div>
+</div>
+<div class="busy" id="busy"><div class="sp"></div><div id="busyMsg">Working&hellip;</div>
+  <div style="font-size:13px;color:#5a6675;max-width:320px">On a phone the full workbook can take up to a minute. Keep this tab in the foreground.</div>
+</div>
+<script>
+(function(){
+  "use strict";
+  var KEY='genio_coaching_companion_v1';
+  var PDFLIB='https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+
+  /* ================= team map rows ================= */
+  var tm=document.getElementById('teamMap');
+  if(tm){
+    for(var i=1;i<=8;i++){
+      var tr=document.createElement('tr');
+      tr.innerHTML='<td><input type="text" data-k="map.'+i+'.a"/></td>'+
+                   '<td><input type="text" data-k="map.'+i+'.b"/></td>'+
+                   '<td><select data-k="map.'+i+'.c"><option value=""></option><option>H</option><option>L</option></select></td>'+
+                   '<td><select data-k="map.'+i+'.d"><option value=""></option><option>H</option><option>L</option></select></td>'+
+                   '<td><select data-k="map.'+i+'.e"><option value=""></option><option>Directive</option><option>Participative</option><option>Supportive</option><option>Delegating</option></select></td>'+
+                   '<td><input type="text" data-k="map.'+i+'.f"/></td>';
+      tm.appendChild(tr);
+    }
+  }
+
+  /* ================= table preparation ================= */
+  [].slice.call(document.querySelectorAll('#content table')).forEach(function(t){
+    var rows=[].slice.call(t.rows);
+    if(!rows.length) return;
+    var head=rows[0], hasTh=!!head.querySelector('th');
+    if(hasTh) head.classList.add('hdr');
+    var labels=hasTh? [].slice.call(head.cells).map(function(c){return c.textContent.replace(/\s+/g,' ').trim();}) : [];
+    var hasFields=!!t.querySelector('[data-k]');
+    var body=rows.slice(hasTh?1:0);
+    body.forEach(function(r,ri){
+      if(ri%2===1) r.classList.add('body-even');
+      [].slice.call(r.cells).forEach(function(c,ci){
+        var lab=labels[ci]||'';
+        if(!lab && ci>0 && r.cells[0]) lab=r.cells[0].textContent.replace(/\s+/g,' ').trim().slice(0,48);
+        if(lab) c.setAttribute('data-label',lab);
+      });
+    });
+    if(hasFields) t.classList.add('stack');
+    var cols=head.cells.length;
+    if(cols>=4) t.classList.add('wide');
+    /* wrap */
+    var w=document.createElement('div');
+    w.className='tw'+((!hasFields&&cols>=3)?' scrollx':'');
+    t.parentNode.insertBefore(w,t); w.appendChild(t);
+    if(!hasFields&&cols>=3){
+      var h=document.createElement('div'); h.className='scrollhint';
+      h.textContent='Swipe sideways to see the full table.';
+      w.parentNode.insertBefore(h,w.nextSibling);
+    }
+  });
+
+  var fields=[].slice.call(document.querySelectorAll('[data-k]'));
+
+  /* ================= auto-grow ================= */
+  function grow(el){
+    if(el.tagName!=='TEXTAREA') return;
+    el.style.height='auto';
+    el.style.height=Math.max(el.scrollHeight, 56)+'px';
+  }
+  function growAll(){ fields.forEach(grow); }
+
+  /* ================= storage ================= */
+  var store={};
+  function load(){
+    try{ store=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ store={}; }
+    fields.forEach(function(f){ if(store[f.dataset.k]!==undefined) f.value=store[f.dataset.k]; });
+  }
+  var saveTimer=null;
+  function save(){
+    try{ localStorage.setItem(KEY, JSON.stringify(store)); }catch(e){}
+    var s=document.getElementById('savedFlag');
+    if(!s) return;
+    s.classList.add('show'); clearTimeout(saveTimer);
+    saveTimer=setTimeout(function(){ s.classList.remove('show'); },1200);
+  }
+  function progress(){
+    var done=fields.filter(function(f){ return (f.value||'').trim()!==''; }).length;
+    var pct=fields.length?Math.round(done/fields.length*100):0;
+    document.getElementById('bar').style.width=pct+'%';
+    document.getElementById('pctTxt').textContent=pct;
+    document.getElementById('cntTxt').textContent=done+' of '+fields.length+' fields';
+  }
+  fields.forEach(function(f){
+    var h=function(){ store[f.dataset.k]=f.value; save(); progress(); grow(f); };
+    f.addEventListener('input',h); f.addEventListener('change',h);
+  });
+
+  /* ================= navigation ================= */
+  var nav=document.getElementById('nav');
+  var sections=[].slice.call(document.querySelectorAll('section'));
+  var links=[];
+  sections.forEach(function(sec){
+    var a=document.createElement('a');
+    a.className='sec'; a.href='#'+sec.id; a.textContent=sec.dataset.title;
+    a.dataset.target=sec.id; nav.appendChild(a); links.push(a);
+    [].slice.call(sec.querySelectorAll('[data-nav="sub"]')).forEach(function(ex){
+      var b=document.createElement('a');
+      b.className='sub'; b.href='#'+ex.id;
+      b.innerHTML='<span class="tag '+ex.dataset.tag+'">'+ex.dataset.tag.toUpperCase()+'</span>'+
+                  ex.dataset.title.replace(/^(EX|CS|AC)\s[\d.]+\s/,'');
+      b.dataset.target=sec.id; b.dataset.scroll=ex.id;
+      nav.appendChild(b); links.push(b);
+    });
+  });
+  var current='s-home';
+  function closeDrawer(){
+    document.getElementById('side').classList.remove('open');
+    document.getElementById('scrim').classList.remove('on');
+  }
+  function show(id, scrollTo){
+    current=id;
+    sections.forEach(function(s){ s.classList.toggle('on', s.id===id); });
+    links.forEach(function(l){
+      var match = l.dataset.target===id && (scrollTo? l.dataset.scroll===scrollTo : !l.dataset.scroll);
+      l.classList.toggle('active', match);
+    });
+    closeDrawer();
+    growAll();
+    var t=scrollTo?document.getElementById(scrollTo):null;
+    if(t && t.scrollIntoView){ t.scrollIntoView({behavior:'smooth',block:'start'}); }
+    else { window.scrollTo(0,0); }
+  }
+  nav.addEventListener('click', function(e){
+    var a=e.target.closest? e.target.closest('a') : null; if(!a) return;
+    e.preventDefault(); show(a.dataset.target, a.dataset.scroll);
+  });
+  window.toggleDrawer=function(){
+    var s=document.getElementById('side'), sc=document.getElementById('scrim');
+    var open=s.classList.toggle('open'); sc.classList.toggle('on', open);
+  };
+  document.getElementById('scrim').addEventListener('click', closeDrawer);
+
+  /* ================= print snapshot ================= */
+  function makeSnapshot(){
+    fields.forEach(function(f){
+      var d=document.createElement('div');
+      d.className='ansPrint';
+      d.style.cssText='display:none;white-space:pre-wrap;border-bottom:1px solid #99a;min-height:1.2em;padding:2px 0;font-size:10.5pt';
+      d.textContent=f.value||'';
+      f.classList.add('fieldLive');
+      f.parentNode.insertBefore(d, f.nextSibling);
+    });
+  }
+  function clearSnapshot(){
+    [].slice.call(document.querySelectorAll('.ansPrint')).forEach(function(d){ d.remove(); });
+    fields.forEach(function(f){ f.classList.remove('fieldLive'); });
+  }
+  var openState=null;
+  window.addEventListener('beforeprint', function(){
+    openState=current; makeSnapshot();
+  });
+  window.addEventListener('afterprint', function(){
+    clearSnapshot(); if(openState) show(openState);
+  });
+
+  /* ================= export txt ================= */
+  function nearestLabel(f){
+    var p=f.previousElementSibling;
+    while(p){ if(p.tagName==='LABEL') return p.textContent.trim(); p=p.previousElementSibling; }
+    return '';
+  }
+  function cellLabel(f){
+    var td=f.closest('td'); if(!td) return nearestLabel(f);
+    var tr=td.parentElement;
+    var own=td.getAttribute('data-label')||'';
+    var row=(tr.cells[0]&&tr.cells[0]!==td)?tr.cells[0].textContent.replace(/\s+/g,' ').trim().slice(0,60):'';
+    return [row,own].filter(Boolean).join(' / ');
+  }
+  window.exportTxt=function(){
+    var out=['COACHING & COUNSELING FOR PHARMACEUTICAL SALES MANAGERS',
+             'Genio Talent Development - Workbook answers',
+             'Exported: '+new Date().toLocaleString(),
+             '================================================================',''];
+    sections.forEach(function(sec){
+      var sf=[].slice.call(sec.querySelectorAll('[data-k]')).filter(function(f){return (f.value||'').trim()!=='';});
+      if(!sf.length) return;
+      out.push('','## '+sec.dataset.title,'----------------------------------------------------------------');
+      var last=null;
+      sf.forEach(function(f){
+        var card=f.closest('.ex');
+        var title=card?(card.dataset.title||''):'(general)';
+        if(title!==last){ out.push('', '['+title+']'); last=title; }
+        var lab=f.closest('td')?cellLabel(f):nearestLabel(f);
+        out.push('  - '+(lab?lab+': ':'')+f.value.replace(/\s+/g,' ').trim());
+      });
+    });
+    out.push('','================================================================',
+             'Completion: '+fields.filter(function(f){return (f.value||'').trim()!=='';}).length+' of '+fields.length+' fields');
+    download(new Blob([out.join('\n')],{type:'text/plain;charset=utf-8'}),
+             'Coaching_Workbook_Answers_'+new Date().toISOString().slice(0,10)+'.txt');
+  };
+  function download(blob,name){
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob); a.download=name;
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(a.href); },1500);
+  }
+
+  /* ================= PDF ================= */
+  var modal=document.getElementById('modal'), busy=document.getElementById('busy');
+  window.openPdf=function(){ modal.classList.add('on'); };
+  window.closePdf=function(){ modal.classList.remove('on'); };
+
+  function loadLib(){
+    return new Promise(function(res,rej){
+      if(window.html2pdf) return res(window.html2pdf);
+      var s=document.createElement('script');
+      s.src=PDFLIB; s.async=true;
+      s.onload=function(){ window.html2pdf?res(window.html2pdf):rej(new Error('loaded but missing')); };
+      s.onerror=function(){ rej(new Error('cdn blocked')); };
+      document.head.appendChild(s);
+      setTimeout(function(){ if(!window.html2pdf) rej(new Error('timeout')); },12000);
+    });
+  }
+
+  function buildPdfDoc(scope){
+    /* scope: 'all' | 'current' */
+    var wrap=document.createElement('div');
+    wrap.style.cssText='width:760px;padding:0 6px;background:#fff;color:#1c2430;'+
+      'font-family:Calibri,Arial,sans-serif;font-size:12.5px;line-height:1.5';
+    var cover=document.createElement('div');
+    cover.style.cssText='padding:10px 0 16px;border-bottom:3px solid #0070C0;margin-bottom:18px';
+    cover.innerHTML='<div style="font-family:Trebuchet MS,sans-serif;font-size:22px;font-weight:700;color:#002060">GEN<span style="color:#FBAE40">I</span>O <span style="font-size:12px;letter-spacing:1.5px;color:#888">TALENT DEVELOPMENT</span></div>'+
+      '<div style="font-family:Trebuchet MS,sans-serif;font-size:19px;color:#002060;font-weight:700;margin-top:10px">Coaching &amp; Counseling for Pharmaceutical Sales Managers</div>'+
+      '<div style="color:#5a6675;margin-top:4px">Workbook &mdash; '+(scope==='all'?'complete':'single section')+
+      ' &middot; exported '+new Date().toLocaleDateString()+'</div>';
+    wrap.appendChild(cover);
+
+    var list = scope==='all' ? sections : sections.filter(function(s){ return s.id===current; });
+    list.forEach(function(sec,idx){
+      var c=sec.cloneNode(true);
+      c.classList.add('on');
+      c.style.display='block';
+      if(idx>0){ var br=document.createElement('div'); br.className='html2pdf__page-break'; wrap.appendChild(br); }
+      /* replace live controls with rendered text */
+      [].slice.call(c.querySelectorAll('[data-k]')).forEach(function(f){
+        var live=document.querySelector('[data-k="'+f.dataset.k+'"]');
+        var val=live?(live.value||''):'';
+        var d=document.createElement('div');
+        d.style.cssText='white-space:pre-wrap;border-bottom:1px solid #aab;min-height:15px;'+
+          'padding:3px 2px;color:'+(val?'#1c2430':'#c3ccd8')+';font-size:12px';
+        d.textContent=val||'—';
+        f.parentNode.replaceChild(d,f);
+      });
+      [].slice.call(c.querySelectorAll('.scrollhint')).forEach(function(e){ e.remove(); });
+      [].slice.call(c.querySelectorAll('.tw')).forEach(function(e){ e.style.overflow='visible'; });
+      [].slice.call(c.querySelectorAll('table')).forEach(function(t){
+        t.classList.remove('stack');
+        t.style.cssText='border-collapse:collapse;width:100%;font-size:11.5px;margin:10px 0';
+      });
+      [].slice.call(c.querySelectorAll('.ex')).forEach(function(e){ e.style.boxShadow='none'; });
+      wrap.appendChild(c);
+    });
+    return wrap;
+  }
+
+  window.doPdf=function(scope){
+    closePdf();
+    busy.classList.add('on');
+    document.getElementById('busyMsg').textContent='Building your PDF…';
+    loadLib().then(function(h2p){
+      var el=buildPdfDoc(scope);
+      var holder=document.createElement('div');
+      holder.style.cssText='position:fixed;left:-10000px;top:0;width:772px;background:#fff';
+      holder.appendChild(el); document.body.appendChild(holder);
+      var name='Coaching_Workbook_'+(scope==='all'?'Full':'Section')+'_'+new Date().toISOString().slice(0,10)+'.pdf';
+      return h2p().set({
+        margin:[10,9,12,9],
+        filename:name,
+        image:{type:'jpeg',quality:0.92},
+        html2canvas:{scale:(window.devicePixelRatio>1?1.6:2),useCORS:true,logging:false,backgroundColor:'#ffffff'},
+        jsPDF:{unit:'mm',format:'a4',orientation:'portrait',compress:true},
+        pagebreak:{mode:['css','legacy'],avoid:['tr','.dialog','.note','blockquote']}
+      }).from(el).save().then(function(){
+        document.body.removeChild(holder);
+        busy.classList.remove('on');
+      });
+    }).catch(function(err){
+      busy.classList.remove('on');
+      showPrintFallback(err&&err.message);
+    });
+  };
+
+  function platformSteps(){
+    var ua=navigator.userAgent||'';
+    var iOS=/iPad|iPhone|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1);
+    var android=/Android/.test(ua);
+    if(iOS) return '<ol><li>Tap the <b>Share</b> icon at the bottom of Safari.</li><li>Scroll down and tap <b>Print</b>.</li><li>On the preview, pinch outward with two fingers.</li><li>Tap <b>Share</b> again &rarr; <b>Save to Files</b>.</li></ol>';
+    if(android) return '<ol><li>Tap the <b>&#8942;</b> menu in Chrome.</li><li>Tap <b>Share</b> &rarr; <b>Print</b>.</li><li>Set the destination to <b>Save as PDF</b>.</li><li>Tap the download button.</li></ol>';
+    return '<ol><li>The print dialog will open.</li><li>Set the destination or printer to <b>Save as PDF</b>.</li><li>Save the file.</li></ol>';
+  }
+  function showPrintFallback(reason){
+    var m=document.getElementById('modal');
+    m.querySelector('.box').innerHTML=
+      '<h3>Use your browser to save the PDF</h3>'+
+      '<p>The one-tap PDF builder could not load'+(reason?' ('+reason+')':'')+
+      ' &mdash; usually no internet connection. Your browser can still produce the PDF, and the result is cleaner:</p>'+
+      platformSteps()+
+      '<p style="font-size:13.5px;color:#5a6675">Your answers are included in full. If nothing happens when you tap Print, this page is running inside an embedded frame &mdash; open it in its own tab first.</p>'+
+      '<div class="row"><button class="solid" onclick="closePdf();setTimeout(function(){window.print()},250)">Open print dialog</button>'+
+      '<button onclick="closePdf()">Cancel</button></div>';
+    m.classList.add('on');
+  }
+  window.showPrintFallback=showPrintFallback;
+
+  window.nativePrint=function(){ closePdf(); setTimeout(function(){ window.print(); },200); };
+
+  /* ================= clear ================= */
+  window.clearAll=function(){
+    if(!confirm('Delete every answer you have typed in this browser? This cannot be undone.')) return;
+    store={}; try{ localStorage.removeItem(KEY); }catch(e){}
+    fields.forEach(function(f){ f.value=''; grow(f); });
+    progress();
+  };
+
+  /* ================= init ================= */
+  load(); progress(); growAll();
+  window.addEventListener('resize', function(){ clearTimeout(window.__gr); window.__gr=setTimeout(growAll,150); });
+  if(location.hash){ var h=location.hash.slice(1); if(document.getElementById(h)) show(h); }
+})();
+
+</script>
+</body>
+</html>
